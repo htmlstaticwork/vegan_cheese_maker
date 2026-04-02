@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheevo | Subscriptions</title>
+  <meta name="description" content="Subscribe to our artisanal cheese box deliveries.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home 1</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="subscription.html" class="nav-link active">Subscription</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+      <div class="header-actions">
+
+        <button class="icon-btn" id="theme-toggle"><i data-lucide="moon"></i></button>
+        <button class="icon-btn" id="rtl-toggle"><i data-lucide="align-right"></i></button>
+        <a href="login.html" class="btn btn-secondary login-btn">Login</a>
+      </div>
+      <button class="icon-btn menu-toggle" id="menu-toggle"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+      </a>
+      <button class="icon-btn" id="close-menu"><i data-lucide="x"></i></button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home 1</a>
+      <a href="home-2.html">Home 2</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="subscription.html">Subscription</a>
+      <a href="collections.html">Collections</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="mobile-actions">
+      <div style="display:flex; gap:1rem; margin-bottom:1rem; justify-content:center;">
+        <button class="icon-btn" id="mobile-theme-toggle" style="background:var(--border-color);"><i data-lucide="moon"></i></button>
+        <button class="icon-btn" id="mobile-rtl-toggle" style="background:var(--border-color);"><i data-lucide="align-right"></i></button>
+      </div>
+      <a href="login.html" class="btn btn-secondary text-center" style="width:100%;">Login</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="fade-in" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=2106&auto=format&fit=crop'); background-size: cover; background-position: center; color: #fff; padding: 10rem 2rem; text-align:center;">
+      <div class="container slide-in-top">
+        <h1 class="section-title" style="margin-bottom:1.5rem; font-family:var(--font-heading); font-size:4rem;">The Connoisseur's Club</h1>
+        <p style="font-size:1.2rem; max-width:600px; margin:0 auto;">Curated monthly discoveries delivered cold, fresh, and ready to savor.</p>
+      </div>
+    </section>
+
+    <!-- Section 2: 3 Plans -->
+    <section class="container" style="padding: var(--section-padding);">
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        
+        <!-- Plan 1 -->
+        <div class="product-card fade-in" style="padding: 3rem 2rem; text-align:center;">
+          <h3 class="mb-2">Tasting Box</h3>
+          <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$45 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
+          <p class="mb-4" style="opacity:0.8;">An introduction to artisanal plant-based cheese.</p>
+          <hr style="border:0; border-top:1px solid var(--border-color); margin: 2rem 0;">
+          <ul style="text-align:left; margin-bottom: 2rem; opacity:0.9;">
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> 3 Seasonal Wheels</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Tasting Notes</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Priority Shipping</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Eco-Friendly Packaging</li>
+          </ul>
+          <a href="signup.html" class="btn btn-secondary" style="width:100%;">Select Plan</a>
+        </div>
+
+        <!-- Plan 2 (Popular) -->
+        <div class="product-card fade-in" style="padding: 3rem 2rem; text-align:center; transform: scale(1.05); border: 2px solid var(--secondary-color); position:relative;">
+          <div style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:var(--secondary-color); color:#121212; padding:0.4rem 1.2rem; border-radius:20px; font-weight:700; font-size:0.8rem; letter-spacing:1px;">MOST POPULAR</div>
+          <h3 class="mb-2">Entertainer's Box</h3>
+          <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$75 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
+          <p class="mb-4" style="opacity:0.8;">Everything you need for the perfect gathering.</p>
+          <hr style="border:0; border-top:1px solid var(--border-color); margin: 2rem 0;">
+          <ul style="text-align:left; margin-bottom: 2rem; opacity:0.9;">
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> 5 Artisanal Wheels</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Curated Crackers</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Organic Fruit Jam</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Free Overnight Shipping</li>
+          </ul>
+          <a href="signup.html" class="btn btn-primary" style="width:100%;">Select Plan</a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="product-card fade-in" style="padding: 3rem 2rem; text-align:center;">
+          <h3 class="mb-2">Gourmet Box</h3>
+          <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$110 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
+          <p class="mb-4" style="opacity:0.8;">The ultimate cellar collection for true aficionados.</p>
+          <hr style="border:0; border-top:1px solid var(--border-color); margin: 2rem 0;">
+          <ul style="text-align:left; margin-bottom: 2rem; opacity:0.9;">
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> 7 Premium Wheels</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Reserve Line Access</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Premium Accompaniments</li>
+            <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Free Overnight Shipping</li>
+          </ul>
+          <a href="signup.html" class="btn btn-secondary" style="width:100%;">Select Plan</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: How it Works (Steps) -->
+    <section style="background:var(--card-bg); padding:var(--section-padding); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
+      <div class="container text-center">
+        <h2 class="section-title fade-in">How The Club Works</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:4rem; justify-content:center; position:relative;">
+          <div class="fade-in" style="flex:1; min-width:250px; max-width:300px;">
+            <div style="width:80px; height:80px; background:var(--primary-color); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-size:2rem; font-weight:700;">1</div>
+            <h3 class="mb-2">Choose Plan</h3>
+            <p style="opacity:0.8;">Select the tasting tier that fits your entertaining needs.</p>
+          </div>
+          <div class="fade-in" style="transition-delay:0.1s; flex:1; min-width:250px; max-width:300px;">
+            <div style="width:80px; height:80px; background:var(--primary-color); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-size:2rem; font-weight:700;">2</div>
+            <h3 class="mb-2">We Curate</h3>
+            <p style="opacity:0.8;">Our affineurs select wheels at peak ripeness according to the season.</p>
+          </div>
+          <div class="fade-in" style="transition-delay:0.2s; flex:1; min-width:250px; max-width:300px;">
+            <div style="width:80px; height:80px; background:var(--primary-color); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.5rem; font-size:2rem; font-weight:700;">3</div>
+            <h3 class="mb-2">Delivered Cold</h3>
+            <p style="opacity:0.8;">Boxes are packed with eco-coolers and shipped overnight right to your door.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Comparison List -->
+    <section class="container" style="padding: var(--section-padding);">
+      <h2 class="section-title fade-in text-center">Compare The Benefits</h2>
+      <div class="fade-in" style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; background:var(--card-bg); border-radius:var(--border-radius); overflow:hidden; border:1px solid var(--border-color);">
+          <thead style="background:var(--primary-color); color:#fff;">
+            <tr>
+              <th style="padding:1.5rem;">Feature</th>
+              <th style="padding:1.5rem; text-align:center;">Tasting</th>
+              <th style="padding:1.5rem; text-align:center;">Entertainer's</th>
+              <th style="padding:1.5rem; text-align:center;">Gourmet</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:1.5rem; font-weight:500;">Number of Wheels</td>
+              <td style="padding:1.5rem; text-align:center;">3</td>
+              <td style="padding:1.5rem; text-align:center;">5</td>
+              <td style="padding:1.5rem; text-align:center;">7</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:1.5rem; font-weight:500;">Tasting Notes & Pairings</td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:1.5rem; font-weight:500;">Artisanal Crackers</td>
+              <td style="padding:1.5rem; text-align:center;">-</td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:1.5rem; font-weight:500;">Organic Jam / Chutney</td>
+              <td style="padding:1.5rem; text-align:center;">-</td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border-color);">
+              <td style="padding:1.5rem; font-weight:500;">Access to Reserve Line</td>
+              <td style="padding:1.5rem; text-align:center;">-</td>
+              <td style="padding:1.5rem; text-align:center;">-</td>
+              <td style="padding:1.5rem; text-align:center;"><i data-lucide="check" style="color:var(--secondary-color); margin:0 auto;"></i></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: CTA -->
+    <section style="background:var(--bg-color); padding: 5rem 2rem; text-align:center;">
+      <div class="container fade-in">
+        <h2 class="mb-3" style="font-family:var(--font-heading); font-size:2.5rem;">Join Satisfied Subscribers</h2>
+        <p class="mb-4" style="max-width:600px; margin:0 auto; font-size:1.1rem; opacity:0.9;">Manage, pause, or cancel your subscription at any time directly through your interactive dashboard.</p>
+        <a href="signup.html" class="btn btn-primary" style="padding: 0 3rem; margin-top:1rem;">Start Subscription</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid fade-in">
+      <div class="footer-col">
+        <a href="index.html" class="logo mb-2">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+        </a>
+        <p>Crafting premium, plant-based cheeses with traditional methods.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="shop.html">Shop</a><a href="subscription.html">Subscriptions</a><a href="about.html">Story</a><a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <div class="footer-links">
+          <a href="collections.html">Collections</a><a href="dashboard.html">Dashboard</a><a href="#">FAQ</a><a href="#">Shipping</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p class="mb-2">Subscribe for exclusive offers.</p>
+        <form class="form-group" style="display:flex;gap:0.5rem;">
+          <input type="email" placeholder="Email Address" class="form-input" required>
+          <button type="submit" class="btn btn-primary" style="padding:0 1.5rem;"><i data-lucide="send"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cheevo Cheesemaker. All Rights Reserved.</p>
+      <button id="back-to-top" class="back-to-top" aria-label="Back to top"><i data-lucide="arrow-up"></i></button>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>

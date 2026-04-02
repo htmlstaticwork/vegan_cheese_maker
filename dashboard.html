@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheevo | Member Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --sidebar-width: 260px;
+      --dash-bg: var(--bg-color);
+      --dash-card: var(--card-bg);
+      --accent-soft: rgba(200, 155, 60, 0.1);
+    }
+    
+    body { background: var(--dash-bg); margin: 0; font-family: var(--font-body); }
+    
+    .dashboard-container { display: flex; min-height: 100vh; position: relative; }
+    
+    /* Sidebar Styling */
+    .sidebar {
+      width: var(--sidebar-width);
+      background: var(--dash-card);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: fixed; left: 0; top: 0; z-index: 1000;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .sidebar-header { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+    .sidebar-nav { flex: 1; padding: 1.5rem 0; overflow-y: auto; }
+    
+    .nav-item {
+      display: flex; align-items: center; gap: 1rem; padding: 0.8rem 2rem;
+      color: var(--text-color); text-decoration: none; transition: all 0.3s ease;
+      opacity: 0.7; border-left: 3px solid transparent; cursor: pointer;
+    }
+    
+    .nav-item i { width: 18px; height: 18px; }
+    .nav-item:hover, .nav-item.active { opacity: 1; background: var(--accent-soft); color: var(--secondary-color); border-left-color: var(--secondary-color); }
+    
+    .sidebar-footer { 
+      padding: 1.5rem 2rem; 
+      border-top: 1px solid var(--border-color); 
+      display: flex; 
+      flex-direction: column;
+      gap: 1.25rem; 
+    }
+    
+    .sidebar-footer > div { display: flex; gap: 1rem; align-items: center; }
+    
+    /* Main Content */
+    .main-content { flex: 1; margin-left: var(--sidebar-width); min-width: 0; }
+    .dash-header { height: 70px; background: var(--dash-card); border-bottom: 1px solid var(--border-color); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 900; }
+    
+    .dash-body { padding: 2rem; max-width: 1400px; margin: 0 auto; }
+    
+    /* Global Card Styles */
+    .dash-box { background: var(--dash-card); border-radius: var(--border-radius); border: 1px solid var(--border-color); padding: 1.5rem; box-shadow: var(--shadow); margin-bottom: 2rem; }
+    .box-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .box-header h3 { margin: 0; font-family: var(--font-heading); font-size: 1.25rem; }
+
+    /* Forms */
+    .pref-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+    .check-card { padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color); text-align: center; cursor: pointer; transition: 0.3s; background: var(--bg-color); }
+    .check-card:hover { border-color: var(--secondary-color); }
+    .check-card.active { border-color: var(--secondary-color); background: var(--accent-soft); }
+
+    /* Fix Sidebar Layout in Dashboard */
+    .sidebar .logo { margin-right: 0 !important; }
+
+
+    .hide-desktop { display: none; }
+
+    @media (max-width: 1024px) {
+      .sidebar { width: 80px; }
+      .nav-item span, .logo-text { display: none; }
+      .nav-item { justify-content: center; padding: 1.2rem; }
+      .main-content { margin-left: 80px; }
+    }
+    
+    @media (max-width: 900px) {
+      .hide-desktop { display: block; }
+      .sidebar { 
+        transform: translateX(-100%); 
+        width: 280px; 
+        box-shadow: 20px 0 50px rgba(0,0,0,0.3);
+      }
+      .sidebar.open { transform: translateX(0); }
+      .nav-item { justify-content: flex-start; padding: 0.8rem 2rem; }
+      .nav-item span, .logo-text { display: block; }
+      .main-content { margin-left: 0; }
+      .dash-header { padding: 0 1.5rem; }
+    }
+
+    .dash-section { display: none; animation: fadeIn 0.4s ease forwards; }
+    .dash-section.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="logo">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+        </a>
+        <button class="icon-btn hide-desktop" id="close-sidebar"><i data-lucide="x"></i></button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-item active" data-target="overview"><i data-lucide="layout-dashboard"></i> <span>Overview</span></div>
+        <div class="nav-item" data-target="orders"><i data-lucide="shopping-bag"></i> <span>Orders</span></div>
+        <div class="nav-item" data-target="subscriptions"><i data-lucide="calendar"></i> <span>Subscriptions</span></div>
+        <div class="nav-item" data-target="preferences"><i data-lucide="heart"></i> <span>Preferences</span></div>
+        <div class="nav-item" data-target="billing"><i data-lucide="credit-card"></i> <span>Billing</span></div>
+        <div class="nav-item" data-target="settings"><i data-lucide="settings"></i> <span>Settings</span></div>
+      </nav>
+      
+      <div class="sidebar-footer">
+        <div>
+          <button class="icon-btn" id="theme-toggle"><i data-lucide="moon"></i></button>
+          <button class="icon-btn" id="rtl-toggle"><i data-lucide="align-right"></i></button>
+        </div>
+        <a href="index.html" class="nav-item" style="padding:0.8rem 0; opacity:0.7; margin-top:0.5rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
+      </div>
+    </aside>
+
+    <div class="main-content">
+      <header class="dash-header">
+        <button class="icon-btn hide-desktop" id="open-sidebar"><i data-lucide="menu"></i></button>
+        <h3>Dashboard Overview</h3>
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
+          <span style="font-weight:600;">David M.</span>
+        </div>
+      </header>
+
+      <main class="dash-body">
+
+        <!-- 1. Overview -->
+        <section id="overview" class="dash-section active">
+          <div class="dash-box" style="background:var(--primary-color); color:#fff; display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <h1 style="margin:0; font-family:var(--font-heading);">Welcome back, David!</h1>
+              <p style="opacity:0.9;">You have 240 reward points available for your next order.</p>
+            </div>
+            <a href="shop.html" class="btn" style="background:#fff; color:var(--primary-color);">Shop New Arrivals</a>
+          </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin-bottom:2rem;">
+            <div class="dash-box" style="margin:0;"><p style="font-size:0.8rem; opacity:0.7; margin:0 0 0.5rem 0;">Active Plan</p><h4 style="margin:0; font-size:1.3rem;">Tasting Box</h4></div>
+            <div class="dash-box" style="margin:0;"><p style="font-size:0.8rem; opacity:0.7; margin:0 0 0.5rem 0;">Total Orders</p><h4 style="margin:0; font-size:1.3rem;">14 Deliveries</h4></div>
+            <div class="dash-box" style="margin:0;"><p style="font-size:0.8rem; opacity:0.7; margin:0 0 0.5rem 0;">Next Box</p><h4 style="margin:0; font-size:1.3rem;">Oct 15, 2026</h4></div>
+            <div class="dash-box" style="margin:0;"><p style="font-size:0.8rem; opacity:0.7; margin:0 0 0.5rem 0;">Credits</p><h4 style="margin:0; font-size:1.3rem;">$12.50</h4></div>
+          </div>
+        </section>
+
+        <!-- 2. Orders -->
+        <section id="orders" class="dash-section">
+          <div class="dash-box">
+            <div class="box-header"><h3>Recent Orders</h3></div>
+            <div style="overflow-x:auto;">
+              <table style="width:100%; border-collapse:collapse; text-align:left;">
+                <thead><tr style="opacity:0.6; font-size:0.8rem; border-bottom:1px solid var(--border-color);"><th style="padding:1rem;">ID</th><th>DATE</th><th>STATUS</th><th>AMOUNT</th><th>ACTION</th></tr></thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border-color);">
+                    <td style="padding:1rem; font-weight:600;">#CH-8924</td>
+                    <td>Sep 15, 2026</td>
+                    <td><span style="background:rgba(44,76,59,0.1); color:var(--primary-color); padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Delivered</span></td>
+                    <td>$75.00</td>
+                    <td><button style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border-color);">
+                    <td style="padding:1rem; font-weight:600;">#CH-8801</td>
+                    <td>Aug 15, 2026</td>
+                    <td><span style="background:rgba(44,76,59,0.1); color:var(--primary-color); padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Delivered</span></td>
+                    <td>$75.00</td>
+                    <td><button style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Subscriptions -->
+        <section id="subscriptions" class="dash-section">
+          <div class="dash-box">
+            <div class="box-header"><h3>Current Subscription</h3><span style="background:var(--secondary-color); color:#fff; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.8rem;">Active</span></div>
+            <div class="grid-stack">
+              <div>
+                <p><strong>Plan:</strong> The Tasting Box (Monthly)</p>
+                <p><strong>Renewal:</strong> Oct 15, 2026</p>
+                <p><strong>Benefits:</strong> 3 Seasonal Wheels, Tasting Notes, Priority Shipping.</p>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <button class="btn btn-primary" style="width:100%;">Upgrade Plan</button>
+                <button class="btn btn-secondary" style="width:100%;">Pause Subscription</button>
+                <button style="color:#ff4444; background:none; border:none; cursor:pointer; margin-top:0.5rem; font-size:0.9rem;">Cancel Subscription</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. Preferences -->
+        <section id="preferences" class="dash-section">
+          <div class="dash-box">
+            <h3>Taste Profile</h3>
+            <p style="opacity:0.7; font-size:0.9rem;">Help us curate your monthly box by selecting your favorite flavor families.</p>
+            <div class="pref-grid">
+              <div class="check-card active">Sharp & Aged</div>
+              <div class="check-card">Creamy & Soft</div>
+              <div class="check-card active">Smoked</div>
+              <div class="check-card">Herb Infused</div>
+              <div class="check-card">Sweet & Fruity</div>
+              <div class="check-card active">Spicy / Chili</div>
+            </div>
+            <div style="margin-top:1.5rem;">
+              <p><strong>Dietary Preferences:</strong></p>
+              <label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;"><input type="checkbox" checked> Soy-Free Only</label>
+              <label style="display:flex; align-items:center; gap:0.5rem;"><input type="checkbox"> Nut-Free Only (Seeds-Based)</label>
+            </div>
+            <button class="btn btn-primary" style="margin-top:2rem;">Save Preferences</button>
+          </div>
+        </section>
+
+        <!-- 5. Billing -->
+        <section id="billing" class="dash-section">
+          <div class="dash-box">
+            <h3>Payment Methods</h3>
+            <div style="display:flex; gap:1rem; margin-top:1rem;">
+              <div style="flex:1; border:1px solid var(--border-color); padding:1rem; border-radius:10px; display:flex; align-items:center; gap:1rem;">
+                <i data-lucide="credit-card"></i>
+                <div><p style="margin:0; font-weight:600;">Visa **** 4242</p><p style="margin:0; font-size:0.8rem; opacity:0.7;">Expires 12/28</p></div>
+                <button style="margin-left:auto; background:none; border:none; color:#ff4444; cursor:pointer;"><i data-lucide="trash-2" style="width:16px;"></i></button>
+              </div>
+              <button class="btn btn-secondary" style="height:auto;">+ Add Card</button>
+            </div>
+          </div>
+          <div class="dash-box">
+            <h3>Billing History</h3>
+            <div style="overflow-x:auto;">
+              <table style="width:100%; text-align:left;">
+                <tr style="border-bottom:1px solid var(--border-color); opacity:0.6; font-size:0.8rem;"><th style="padding:1rem;">INVOICE</th><th>DATE</th><th>AMOUNT</th><th>DOWNLOAD</th></tr>
+                <tr><td style="padding:1rem;">#INV-2026-09</td><td>Sep 15</td><td>$75.00</td><td><button style="background:none; border:none; color:var(--primary-color); cursor:pointer;"><i data-lucide="download"></i></button></td></tr>
+                <tr><td style="padding:1rem;">#INV-2026-08</td><td>Aug 15</td><td>$75.00</td><td><button style="background:none; border:none; color:var(--primary-color); cursor:pointer;"><i data-lucide="download"></i></button></td></tr>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. Settings -->
+        <section id="settings" class="dash-section">
+          <div class="dash-box">
+            <h3>Profile Settings</h3>
+            <div class="grid-stack" style="gap:1.5rem; margin-top:1.5rem;">
+              <div class="form-group"><label>Full Name</label><input type="text" class="form-input" value="David Miller"></div>
+              <div class="form-group"><label>Email Address</label><input type="email" class="form-input" value="david@example.com"></div>
+              <div class="form-group"><label>New Password</label><input type="password" class="form-input" placeholder="Leave blank to keep current"></div>
+              <div class="form-group"><label>Security Code</label><input type="password" class="form-input" value="123456" disabled></div>
+            </div>
+            <div style="margin-top:1.5rem;">
+              <label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;"><input type="checkbox" checked> Email notifications for new arrivals</label>
+              <label style="display:flex; align-items:center; gap:0.5rem;"><input type="checkbox" checked> Order tracking SMS updates</label>
+            </div>
+            <button class="btn btn-primary" style="margin-top:2rem;">Update Account</button>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+  <script>
+    // Tab switching
+    // Tab switching
+    const navItems = document.querySelectorAll('.nav-item');
+    const sections = document.querySelectorAll('.dash-section');
+    const sidebar = document.getElementById('sidebar');
+    const openBtn = document.getElementById('open-sidebar');
+    const closeBtn = document.getElementById('close-sidebar');
+
+    navItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const target = item.getAttribute('data-target');
+        if(!target) return; // For logout or other static links
+
+        navItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        sections.forEach(s => s.classList.remove('active'));
+        const targetSection = document.getElementById(target);
+        if(targetSection) targetSection.classList.add('active');
+
+        if(window.innerWidth < 900) sidebar.classList.remove('open');
+      });
+    });
+
+    // Toggle Preferences
+    const prefCards = document.querySelectorAll('.check-card');
+    prefCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('active');
+      });
+    });
+
+    if(openBtn) openBtn.addEventListener('click', () => sidebar.classList.add('open'));
+    if(closeBtn) closeBtn.addEventListener('click', () => sidebar.classList.remove('open'));
+    
+    // Ensure Lucide icons are refreshed
+    lucide.createIcons();
+  </script>
+</body>
+</html>

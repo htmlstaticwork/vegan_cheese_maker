@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheevo | Collections</title>
+  <meta name="description" content="Explore our expertly curated artisanal plant-based cheese collections.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home 1</a>
+        <a href="home-2.html" class="nav-link">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="subscription.html" class="nav-link">Subscription</a>
+        <a href="collections.html" class="nav-link active">Collections</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+      <div class="header-actions">
+
+        <button class="icon-btn" id="theme-toggle"><i data-lucide="moon"></i></button>
+        <button class="icon-btn" id="rtl-toggle"><i data-lucide="align-right"></i></button>
+        <a href="login.html" class="btn btn-secondary login-btn">Login</a>
+      </div>
+      <button class="icon-btn menu-toggle" id="menu-toggle"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+      </a>
+      <button class="icon-btn" id="close-menu"><i data-lucide="x"></i></button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home 1</a>
+      <a href="home-2.html">Home 2</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="subscription.html">Subscription</a>
+      <a href="collections.html">Collections</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="mobile-actions">
+      <div style="display:flex; gap:1rem; margin-bottom:1rem; justify-content:center;">
+        <button class="icon-btn" id="mobile-theme-toggle" style="background:var(--border-color);"><i data-lucide="moon"></i></button>
+        <button class="icon-btn" id="mobile-rtl-toggle" style="background:var(--border-color);"><i data-lucide="align-right"></i></button>
+      </div>
+      <a href="login.html" class="btn btn-secondary text-center" style="width:100%;">Login</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero-1 fade-in" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=1974&auto=format&fit=crop'); background-size: cover; background-position: center; align-items:center; justify-content:center; text-align:center;">
+      <div class="container slide-in-top" style="color:#fff;">
+        <h1 class="hero-1-title" style="font-size:4.5rem; margin-bottom:1rem;">Tasting Collections</h1>
+        <p class="hero-1-subtitle" style="font-size:1.5rem; max-width:800px; margin:0 auto 2.5rem;">Curated flights of our finest plant-based artisanship.</p>
+        <a href="#explore" class="btn btn-primary" style="font-size:1.1rem; padding: 0 2.5rem;">Explore Curation <i data-lucide="arrow-down"></i></a>
+      </div>
+    </section>
+
+    <!-- Section 2: Cheese Categories -->
+    <section id="explore" style="padding: var(--section-padding); background:var(--card-bg);">
+      <div class="container text-center">
+        <h2 class="section-title fade-in">Browse By Affinage</h2>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+          <a href="#" class="fade-in img-container" style="border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none;">
+            <i data-lucide="sun" style="width:48px; height:48px; color:var(--primary-color); margin-bottom:1.5rem;"></i>
+            <h3 style="color:var(--text-color);">Soft & Bloomy</h3>
+            <p style="color:var(--text-color); opacity:0.7;">Camemberts and Chèvres</p>
+          </a>
+          <a href="#" class="fade-in img-container" style="transition-delay:0.1s; border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none;">
+            <i data-lucide="clock" style="width:48px; height:48px; color:var(--primary-color); margin-bottom:1.5rem;"></i>
+            <h3 style="color:var(--text-color);">Aged & Hard</h3>
+            <p style="color:var(--text-color); opacity:0.7;">Sharp Cheddars and Goudas</p>
+          </a>
+          <a href="#" class="fade-in img-container" style="transition-delay:0.2s; border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none;">
+            <i data-lucide="wind" style="width:48px; height:48px; color:var(--primary-color); margin-bottom:1.5rem;"></i>
+            <h3 style="color:var(--text-color);">Pungent & Blue</h3>
+            <p style="color:var(--text-color); opacity:0.7;">Reserved Roquefort styles</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Seasonal Collections -->
+    <section style="padding: var(--section-padding); background:var(--primary-color); color:#fff; overflow:hidden;">
+      <div class="container">
+        <div class="grid-stack">
+          <div class="slide-in-left">
+            <h2 class="mb-3" style="font-family:var(--font-heading); font-size:3rem; color:var(--secondary-color);">The Autumn Harvest</h2>
+            <p class="mb-4" style="font-size:1.1rem; opacity:0.9;">A limited-edition collection featuring smoked hickory infused cheddar, cranberry-studded goat-style logs, and our famous truffle camembert. Perfect for your upcoming gatherings.</p>
+            <ul style="margin-bottom:2rem; opacity:0.9;">
+              <li style="margin-bottom:0.5rem; display:flex; gap:0.5rem;"><i data-lucide="check-circle"></i> 4 Full Wheels</li>
+              <li style="margin-bottom:0.5rem; display:flex; gap:0.5rem;"><i data-lucide="check-circle"></i> Spiced Apple Jam included</li>
+              <li style="margin-bottom:0.5rem; display:flex; gap:0.5rem;"><i data-lucide="check-circle"></i> Free overnight shipping</li>
+            </ul>
+            <a href="shop.html" class="btn btn-secondary" style="border-color:#fff; color:#fff;">Order the Harvest Box</a>
+          </div>
+          <div class="slide-in-right img-container" style="box-shadow:0 20px 50px rgba(0,0,0,0.5);">
+            <img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=2106&auto=format&fit=crop" style="border-radius:var(--border-radius); height:500px;" alt="Autumn Cheese Box">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Featured Collection Grid -->
+    <section class="container" style="padding: var(--section-padding);">
+      <h2 class="section-title fade-in">Reserve Bundles</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+        <div class="fade-in" style="background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=2073&auto=format&fit=crop" alt="Smoked Bundle" style="height:250px; width:100%; object-fit:cover;">
+          <div style="padding:2rem; text-align:center;">
+            <h3 class="mb-2">The Smoked Trio</h3>
+            <p class="mb-4" style="opacity:0.8;">Three variants of our deeply smoked cashew blends.</p>
+            <p class="mb-4" style="font-size:1.5rem; font-weight:600; color:var(--primary-color);">$65</p>
+            <a href="shop.html" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+          </div>
+        </div>
+        <div class="fade-in" style="transition-delay:0.1s; background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1631209121750-a9f9393e8e60?q=80&w=2070&auto=format&fit=crop" alt="Bloomy Bundle" style="height:250px; width:100%; object-fit:cover;">
+          <div style="padding:2rem; text-align:center;">
+            <h3 class="mb-2">The Bloomy Flight</h3>
+            <p class="mb-4" style="opacity:0.8;">Four incredibly soft, spreadable wheels with floral notes.</p>
+            <p class="mb-4" style="font-size:1.5rem; font-weight:600; color:var(--primary-color);">$85</p>
+            <a href="shop.html" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+          </div>
+        </div>
+        <div class="fade-in" style="transition-delay:0.2s; background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden;">
+          <img src="https://images.unsplash.com/photo-1626200419199-341af182d03d?q=80&w=2070&auto=format&fit=crop" alt="Artisan Grand" style="height:250px; width:100%; object-fit:cover;">
+          <div style="padding:2rem; text-align:center;">
+            <h3 class="mb-2">The Grand Cru</h3>
+            <p class="mb-4" style="opacity:0.8;">Our entire flagship lineup in one massive tasting box.</p>
+            <p class="mb-4" style="font-size:1.5rem; font-weight:600; color:var(--primary-color);">$150</p>
+            <a href="shop.html" class="btn btn-secondary" style="width:100%;">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: CTA -->
+    <section style="padding: 6rem 2rem; background:var(--bg-color); text-align:center; border-top:1px solid var(--border-color);">
+      <div class="container fade-in">
+        <h2 style="font-family:var(--font-heading); font-size:2.5rem; margin-bottom:1.5rem;">Never Miss a New Collection</h2>
+        <p style="font-size:1.2rem; max-width:600px; margin:0 auto 3rem;">Join our subscription club to receive exclusive collections automatically every month.</p>
+        <a href="subscription.html" class="btn btn-primary" style="padding:0 3rem;">View Club Plans</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid fade-in">
+      <div class="footer-col">
+        <a href="index.html" class="logo mb-2">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+        </a>
+        <p>Crafting premium, plant-based cheeses with traditional methods and pure ingredients.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="shop.html">Shop Cheeses</a>
+          <a href="subscription.html">Subscriptions</a>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <div class="footer-links">
+          <a href="collections.html">Collections</a>
+          <a href="dashboard.html">My Dashboard</a>
+          <a href="#">FAQ</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p class="mb-2">Subscribe for exclusive offers and new flavors.</p>
+        <form class="form-group" style="display:flex;gap:0.5rem;">
+          <input type="email" placeholder="Email Address" class="form-input" style="margin-bottom:0;" required>
+          <button type="submit" class="btn btn-primary" style="padding:0 1.5rem;"><i data-lucide="send"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cheevo Cheesemaker. All Rights Reserved.</p>
+      <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+      </button>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheevo | Home Premium</title>
+  <meta name="description" content="A premium experience of artisanal plant-based cheeses.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero-2 {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      background-color: #1a1a1a;
+      overflow: hidden;
+      padding-top: var(--header-height);
+    }
+    .hero-2-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1583338917451-face2751d8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+      animation: scaleZoom 20s linear infinite alternate;
+    }
+    @keyframes scaleZoom {
+      0% { transform: translate(-50%, -50%) scale(1); }
+      100% { transform: translate(-50%, -50%) scale(1.1); }
+    }
+    .hero-2-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 2rem;
+      color: #fff;
+    }
+    .hero-2-title {
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #fff;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    
+    .flavor-profile-card {
+      padding: 3rem 2rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      text-align: center;
+      transition: var(--transition);
+      background: var(--card-bg);
+    }
+    .flavor-profile-card:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+    .flavor-profile-card:hover .fp-icon { color: var(--secondary-color); }
+    .flavor-profile-card:hover p { color: rgba(255,255,255,0.8); }
+    .fp-icon {
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      width: 48px; height: 48px;
+    }
+    [data-theme="dark"] .fp-icon { color: var(--secondary-color); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+      </a>
+      <nav class="nav-menu">
+        <a href="index.html" class="nav-link">Home 1</a>
+        <a href="home-2.html" class="nav-link active">Home 2</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="subscription.html" class="nav-link">Subscription</a>
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+      <div class="header-actions">
+
+        <button class="icon-btn" id="theme-toggle"><i data-lucide="moon"></i></button>
+        <button class="icon-btn" id="rtl-toggle"><i data-lucide="align-right"></i></button>
+        <a href="login.html" class="btn btn-secondary login-btn">Login</a>
+      </div>
+      <button class="icon-btn menu-toggle" id="menu-toggle"><i data-lucide="menu"></i></button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <div class="mobile-menu-header">
+      <a href="index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+      </a>
+      <button class="icon-btn" id="close-menu"><i data-lucide="x"></i></button>
+    </div>
+    <div class="mobile-nav-links">
+      <a href="index.html">Home 1</a>
+      <a href="home-2.html">Home 2</a>
+      <a href="about.html">About</a>
+      <a href="shop.html">Shop</a>
+      <a href="subscription.html">Subscription</a>
+      <a href="collections.html">Collections</a>
+      <a href="contact.html">Contact</a>
+      <a href="dashboard.html">Dashboard</a>
+    </div>
+    <div class="mobile-actions">
+      <div style="display:flex; gap:1rem; margin-bottom:1rem; justify-content:center;">
+        <button class="icon-btn" id="mobile-theme-toggle" style="background:var(--border-color);"><i data-lucide="moon"></i></button>
+        <button class="icon-btn" id="mobile-rtl-toggle" style="background:var(--border-color);"><i data-lucide="align-right"></i></button>
+      </div>
+      <a href="login.html" class="btn btn-secondary text-center" style="width:100%;">Login</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: Animated Hero -->
+    <section class="hero-2">
+      <div class="hero-2-img"></div>
+      <div class="hero-2-content fade-in">
+        <p style="letter-spacing: 4px; text-transform: uppercase; font-size: 0.9rem; margin-bottom:1rem;">The Pinnacle of Plant-Based</p>
+        <h1 class="hero-2-title">Refined. Cultured.<br>Exceptional.</h1>
+        <p style="margin: 2rem auto; font-size: 1.2rem; max-width: 600px; color:#ddd;">Elevate your culinary experience with perfectly aged, dairy-free masterpieces.</p>
+        <div style="display:flex; gap:1rem; justify-content:center;">
+          <a href="shop.html" class="btn btn-primary">Explore The Cellar</a>
+          <a href="collections.html" class="btn btn-secondary" style="border-color:#fff; color:#fff;">Discover Collections</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Flavor Profiles Grid -->
+    <section class="container" style="padding: var(--section-padding);">
+      <h2 class="section-title fade-in">Distinct Flavor Profiles</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div class="flavor-profile-card fade-in">
+          <img src="https://images.unsplash.com/photo-1510425463958-dcced28da480?q=80&w=600&auto=format&fit=crop" alt="Smoked and Nutty" style="width:100%; height:180px; object-fit:cover; border-radius:var(--border-radius); margin-bottom:1.5rem;">
+          <h3 class="mb-2">Smoked & Nutty</h3>
+          <p>Deep, rich hickory notes balanced with creamy almond and cashew bases.</p>
+        </div>
+        <div class="flavor-profile-card fade-in" style="transition-delay:0.1s;">
+          <img src="https://images.unsplash.com/photo-1582405051187-b952a23e592f?q=80&w=600&auto=format&fit=crop" alt="Soft and Creamy" style="width:100%; height:180px; object-fit:cover; border-radius:var(--border-radius); margin-bottom:1.5rem;">
+          <h3 class="mb-2">Soft & Creamy</h3>
+          <p>Delicate bloomy rinds with sumptuously smooth interiors like our Camembert.</p>
+        </div>
+        <div class="flavor-profile-card fade-in" style="transition-delay:0.2s;">
+          <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=600&auto=format&fit=crop" alt="Sharp and Tangy" style="width:100%; height:180px; object-fit:cover; border-radius:var(--border-radius); margin-bottom:1.5rem;">
+          <h3 class="mb-2">Sharp & Tangy</h3>
+          <p>Aged varieties boasting sharp bites, perfect for elevating robust dishes.</p>
+        </div>
+        <div class="flavor-profile-card fade-in" style="transition-delay:0.3s;">
+          <img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=600&auto=format&fit=crop" alt="Earthy and Truffled" style="width:100%; height:180px; object-fit:cover; border-radius:var(--border-radius); margin-bottom:1.5rem;">
+          <h3 class="mb-2">Earthy & Truffled</h3>
+          <p>Infused with black summer truffles and wild mushrooms for complex earthiness.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Customer Stories (Updated) -->
+    <section style="background:var(--primary-color); color:#fff; padding: var(--section-padding);">
+      <div class="container text-center">
+        <h2 class="section-title fade-in" style="color:var(--secondary-color);">The Cultured Community</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+          <div class="fade-in" style="flex:1; min-width:300px; padding:2rem; border:1px dashed rgba(255,255,255,0.3); border-radius:var(--border-radius);">
+            <p style="font-style:italic; font-size:1.1rem; margin-bottom:1.5rem;">"Finally, a subscription box that consistently wows. The Truffle Camembert is our new favorite!"</p>
+            <p style="font-weight:600;">- Maria K., Subscriber</p>
+          </div>
+          <div class="fade-in" style="flex:1; min-width:300px; padding:2rem; border:1px dashed rgba(255,255,255,0.3); border-radius:var(--border-radius);">
+            <p style="font-style:italic; font-size:1.1rem; margin-bottom:1.5rem;">"I've served Cheevo at my fine dining restaurant for months. Customers can't believe it's dairy-free."</p>
+            <p style="font-weight:600;">- Chef Julian B.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Best Sellers (Chef's Reserve) -->
+    <section class="container" style="padding: var(--section-padding);">
+      <h2 class="section-title fade-in">Chef's Reserve Line</h2>
+      <div class="product-grid">
+        <div class="product-card fade-in">
+          <div class="product-img"><img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=2106&auto=format&fit=crop" alt="Reserve Blue"></div>
+          <div class="product-info">
+            <h3 class="product-title">Reserve Almond Blue</h3>
+            <p class="product-price">$38.00</p>
+            <a href="shop.html" class="btn btn-secondary" style="width:100%;">View Details</a>
+          </div>
+        </div>
+        <div class="product-card fade-in" style="transition-delay:0.1s;">
+          <div class="product-img"><img src="https://images.unsplash.com/photo-1624806994096-7f20c10f546e?q=80&w=2070&auto=format&fit=crop" alt="Reserve Camembert"></div>
+          <div class="product-info">
+            <h3 class="product-title">Aged Truffle Camembert</h3>
+            <p class="product-price">$35.00</p>
+            <a href="shop.html" class="btn btn-secondary" style="width:100%;">View Details</a>
+          </div>
+        </div>
+        <div class="product-card fade-in" style="transition-delay:0.2s;">
+          <div class="product-img"><img src="https://images.unsplash.com/photo-1627581177651-7f00ddac553a?q=80&w=1964&auto=format&fit=crop" alt="Reserve Ash"></div>
+          <div class="product-info">
+            <h3 class="product-title">Ash-Ripened Blanc</h3>
+            <p class="product-price">$30.00</p>
+            <a href="shop.html" class="btn btn-secondary" style="width:100%;">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Brand Story -->
+    <section style="background:var(--card-bg); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
+      <div class="container" style="padding: 6rem 2rem; text-align:center;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-color)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="fade-in mb-3" style="margin:0 auto;"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+        <h2 class="section-title fade-in" style="margin-bottom:2rem;">Born from Tradition,<br>Crafted for Tomorrow</h2>
+        <p style="max-width:700px; margin:0 auto; font-size:1.1rem; line-height:1.8;" class="fade-in">We believe that abstaining from dairy shouldn't mean compromising on craftsmanship. Our founders traveled to the finest creameries in France to study the art of affinage (cheese aging), adapting centuries-old techniques to ethically sourced cashew and almond bases.</p>
+        <a href="about.html" class="btn btn-secondary fade-in" style="margin-top:2rem;">Our Full Story</a>
+      </div>
+    </section>
+
+    <!-- Section 6: CTA Banner -->
+    <section class="container" style="padding: var(--section-padding);">
+      <div style="background-image:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=2073&auto=format&fit=crop'); background-size:cover; background-position:center; background-attachment:fixed; padding:6rem 2rem; border-radius:var(--border-radius); text-align:center; color:#fff;" class="fade-in">
+        <h2 style="font-family:var(--font-heading); font-size:3rem; margin-bottom:1.5rem;">Begin Your Tasting Journey</h2>
+        <p style="font-size:1.2rem; margin-bottom:3rem; max-width:600px; margin-left:auto; margin-right:auto;">Subscribe today and transform your culinary repertoire with our monthly curated selections.</p>
+        <a href="subscription.html" class="btn btn-primary" style="font-size:1.1rem; padding:0 2.5rem;">Join The Club</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-grid fade-in">
+      <div class="footer-col">
+        <a href="index.html" class="logo mb-2">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+        </a>
+        <p>Crafting premium, plant-based cheeses with traditional methods and pure ingredients.</p>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+          <a href="#" class="social-icon"><svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="shop.html">Shop Cheeses</a>
+          <a href="subscription.html">Subscriptions</a>
+          <a href="about.html">Our Story</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <div class="footer-links">
+          <a href="collections.html">Collections</a>
+          <a href="dashboard.html">My Dashboard</a>
+          <a href="#">FAQ</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p class="mb-2">Subscribe for exclusive offers and new flavors.</p>
+        <form class="form-group" style="display:flex;gap:0.5rem;">
+          <input type="email" placeholder="Email Address" class="form-input" style="margin-bottom:0;" required>
+          <button type="submit" class="btn btn-primary" style="padding:0 1.5rem;"><i data-lucide="send"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Cheevo Cheesemaker. All Rights Reserved.</p>
+      <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i data-lucide="arrow-up"></i>
+      </button>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="script.js"></script>
+</body>
+</html>
