@@ -6,6 +6,7 @@
   <title>Cheevo | Shop</title>
   <meta name="description" content="Shop our full collection of artisanal plant-based cheeses.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <style>
     .filters {
       display: flex;
@@ -120,66 +121,98 @@
       <div class="container slide-in-top">
         <h1 class="section-title" style="margin-bottom:1rem; font-family:var(--font-heading); font-size:4.5rem;">The Cellar</h1>
         <p style="font-size:1.2rem; max-width:600px; margin:0 auto;">Explore our curated collection of handcrafted, plant-based cheeses.</p>
+        <p style="font-size:1rem; max-width:700px; margin:1.5rem auto 0; opacity:0.9; font-weight:300; letter-spacing:1px; text-transform:uppercase;">Aged in climate-controlled vaults | Traditional affinage techniques</p>
+        <p style="font-size:1.1rem; max-width:650px; margin:1rem auto 0; font-style:italic; opacity:0.8;">"From heritage-aged wheels to contemporary bloomy rinds, experience the future of fine fromagerie."</p>
       </div>
     </section>
 
     <!-- Sections 2 & 3: Filters and Grid -->
     <section class="container" style="padding: var(--section-padding);">
       <div class="filters fade-in">
-        <button class="filter-btn active">All Cheeses</button>
-        <button class="filter-btn">Aged & Hard</button>
-        <button class="filter-btn">Soft & Bloom</button>
-        <button class="filter-btn">Smoked</button>
-        <button class="filter-btn">Reserve Collection</button>
+        <button class="filter-btn active" data-filter="all">All Cheeses</button>
+        <button class="filter-btn" data-filter="aged">Aged & Hard</button>
+        <button class="filter-btn" data-filter="soft">Soft & Bloom</button>
+        <button class="filter-btn" data-filter="smoked">Smoked</button>
+        <button class="filter-btn" data-filter="reserve">Reserve Collection</button>
       </div>
 
       <div class="product-grid">
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-category="smoked aged">
           <div class="product-img"><img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=2073&auto=format&fit=crop" alt="Cheddar" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="product-info">
             <h3 class="product-title">Smoked Cashew Cheddar</h3>
             <p class="product-price">$24.00</p>
-            <button class="btn btn-secondary quick-view-trigger" style="width:100%;">Quick View</button>
+            <button class="btn btn-secondary quick-view-trigger" 
+              data-title="Smoked Cashew Cheddar" 
+              data-price="$24.00" 
+              data-img="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=2073&auto=format&fit=crop"
+              data-desc="Our signature oak-smoked cashew cheddar. Aged for 4 weeks for a robust, tangy profile with a subtle hickory finish. Perfect for charcuterie boards."
+              style="width:100%;">Quick View</button>
           </div>
         </div>
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-category="soft">
           <div class="product-img"><img src="https://images.unsplash.com/photo-1624806994096-7f20c10f546e?q=80&w=2070&auto=format&fit=crop" alt="Camembert" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="product-info">
             <h3 class="product-title">Truffle Camembert</h3>
             <p class="product-price">$28.00</p>
-            <button class="btn btn-secondary quick-view-trigger" style="width:100%;">Quick View</button>
+            <button class="btn btn-secondary quick-view-trigger" 
+              data-title="Truffle Camembert" 
+              data-price="$28.00" 
+              data-img="https://images.unsplash.com/photo-1624806994096-7f20c10f546e?q=80&w=2070&auto=format&fit=crop"
+              data-desc="Luxurious bloomy rind cheese infused with summer black truffles. Incredibly creamy with depth of earthy flavors. Best paired with dry Champagne."
+              style="width:100%;">Quick View</button>
           </div>
         </div>
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-category="reserve soft">
           <div class="product-img"><img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=2106&auto=format&fit=crop" alt="Blue" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="product-info">
             <h3 class="product-title">Almond Blue Reserve</h3>
             <p class="product-price">$32.00</p>
-            <button class="btn btn-secondary quick-view-trigger" style="width:100%;">Quick View</button>
+            <button class="btn btn-secondary quick-view-trigger" 
+              data-title="Almond Blue Reserve" 
+              data-price="$32.00" 
+              data-img="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=2106&auto=format&fit=crop"
+              data-desc="A brave evolution of the blue cheese tradition. Sharp, tangy, and sophisticated with a creamy almond base and natural blue marble veins."
+              style="width:100%;">Quick View</button>
           </div>
         </div>
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-category="soft">
           <div class="product-img"><img src="https://images.unsplash.com/photo-1627581177651-7f00ddac553a?q=80&w=1964&auto=format&fit=crop" alt="Ash" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="product-info">
             <h3 class="product-title">Ash-Coated Chèvre</h3>
             <p class="product-price">$22.00</p>
-            <button class="btn btn-secondary quick-view-trigger" style="width:100%;">Quick View</button>
+            <button class="btn btn-secondary quick-view-trigger" 
+              data-title="Ash-Coated Chèvre" 
+              data-price="$22.00" 
+              data-img="https://images.unsplash.com/photo-1627581177651-7f00ddac553a?q=80&w=1964&auto=format&fit=crop"
+              data-desc="Delicate and tangy almond chèvre coated in food-grade vegetable ash. A stunning addition to any board with its dramatic monochrome rind."
+              style="width:100%;">Quick View</button>
           </div>
         </div>
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-category="soft">
           <div class="product-img"><img src="https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=1974&auto=format&fit=crop" alt="Garlic Info" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="product-info">
             <h3 class="product-title">Garlic & Herb Spread</h3>
             <p class="product-price">$18.00</p>
-            <button class="btn btn-secondary quick-view-trigger" style="width:100%;">Quick View</button>
+            <button class="btn btn-secondary quick-view-trigger" 
+              data-title="Garlic & Herb Spread" 
+              data-price="$18.00" 
+              data-img="https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?q=80&w=1974&auto=format&fit=crop"
+              data-desc="Smooth, spreadable cream cheese whipped with fresh garden herbs and roasted garlic. A versatile favorite for bagels and gourmet appetizers."
+              style="width:100%;">Quick View</button>
           </div>
         </div>
-        <div class="product-card fade-in">
+        <div class="product-card fade-in" data-category="aged">
           <div class="product-img"><img src="https://images.unsplash.com/photo-1615486511484-92e172cb4fec?q=80&w=2070&auto=format&fit=crop" alt="Pepper Jack" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="product-info">
             <h3 class="product-title">Aged Pepper Jack</h3>
             <p class="product-price">$24.00</p>
-            <button class="btn btn-secondary quick-view-trigger" style="width:100%;">Quick View</button>
+            <button class="btn btn-secondary quick-view-trigger" 
+              data-title="Aged Pepper Jack" 
+              data-price="$24.00" 
+              data-img="https://images.unsplash.com/photo-1615486511484-92e172cb4fec?q=80&w=2070&auto=format&fit=crop"
+              data-desc="Bold and spicy. This semi-hard cashew cheese is studded with hand-harvested chili flakes and aged for a sharp, lingering heat."
+              style="width:100%;">Quick View</button>
           </div>
         </div>
       </div>
@@ -216,11 +249,11 @@
   <div class="quick-view-overlay" id="quick-view-overlay">
     <div class="quick-view-card">
       <button class="close-modal" id="close-modal"><i data-lucide="x"></i></button>
-      <div><img src="https://images.unsplash.com/photo-1624806994096-7f20c10f546e?q=80&w=2070&auto=format&fit=crop" class="quick-view-img" alt="Cheese"></div>
+      <div><img src="" class="quick-view-img" alt="Cheese" id="qv-img" style="max-width: 100%; height: auto; display: block;"></div>
       <div class="quick-view-details">
-        <h2 style="font-family:var(--font-heading); font-size:2rem; margin-bottom:0.5rem;" id="qv-title">Truffle Camembert</h2>
-        <p style="color:var(--secondary-color); font-size:1.5rem; font-weight:600; margin-bottom:1.5rem;" id="qv-price">$28.00</p>
-        <p style="margin-bottom:2rem; opacity:0.8;">A rich, bloomy rind cheese infused with summer black truffles. Incredibly creamy with depth of earthy flavors. Perfect paired with a dry Champagne.</p>
+        <h2 style="font-family:var(--font-heading); font-size:2rem; margin-bottom:0.5rem;" id="qv-title">Product Name</h2>
+        <p style="color:var(--secondary-color); font-size:1.5rem; font-weight:600; margin-bottom:1.5rem;" id="qv-price">$0.00</p>
+        <p style="margin-bottom:2rem; opacity:0.8;" id="qv-desc">Product description goes here.</p>
         <label style="display:block; margin-bottom:0.5rem; font-weight:500;">Quantity</label>
         <input type="number" value="1" min="1" class="form-input mb-4" style="width:100px;">
         <button class="btn btn-primary" style="width:100%;"><i data-lucide="shopping-cart"></i> Add to Cart</button>
@@ -272,8 +305,44 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="script.js"></script>
   <script>
+    // Category Filtering Logic
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        productCards.forEach(card => {
+          const categories = card.getAttribute('data-category');
+          if (filter === 'all' || (categories && categories.includes(filter))) {
+            card.style.display = 'block';
+            setTimeout(() => card.style.opacity = '1', 10);
+          } else {
+            card.style.opacity = '0';
+            setTimeout(() => card.style.display = 'none', 300);
+          }
+        });
+      });
+    });
+
+    // Quick View Modal Logic
     document.querySelectorAll('.quick-view-trigger').forEach(btn => {
       btn.addEventListener('click', () => {
+        const title = btn.getAttribute('data-title');
+        const price = btn.getAttribute('data-price');
+        const img = btn.getAttribute('data-img');
+        const desc = btn.getAttribute('data-desc');
+
+        document.getElementById('qv-title').textContent = title;
+        document.getElementById('qv-price').textContent = price;
+        document.getElementById('qv-img').src = img;
+        document.getElementById('qv-img').alt = title;
+        document.getElementById('qv-desc').textContent = desc;
+
         document.getElementById('quick-view-overlay').classList.add('active');
         document.body.style.overflow = 'hidden';
       });

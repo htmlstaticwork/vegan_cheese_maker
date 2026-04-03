@@ -5,9 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cheevo | Login</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 </head>
 <body class="auth-page">
+  <!-- Fixed Toggles -->
+  <div style="position:fixed; top:2rem; right:2rem; display:flex; gap:1rem; z-index:1000;">
+    <button class="icon-btn" id="theme-toggle" style="background:var(--card-bg); border:1px solid var(--border-color); box-shadow:var(--shadow-sm);"><i data-lucide="moon"></i></button>
+    <button class="icon-btn" id="rtl-toggle" style="background:var(--card-bg); border:1px solid var(--border-color); box-shadow:var(--shadow-sm);"><i data-lucide="align-right"></i></button>
+  </div>
 
   <div class="auth-card fade-in">
     <div style="text-align:center;">
@@ -63,11 +69,7 @@
       New to Cheevo? <a href="signup.html" style="color:var(--primary-color); font-weight:600;">Create an account</a>
     </p>
 
-    <!-- Essential Toggles -->
-    <div style="display:flex; justify-content:center; gap:1rem; margin-top:2rem;">
-      <button class="icon-btn" id="theme-toggle" style="background:var(--input-bg); border:1px solid var(--border-color);"><i data-lucide="moon" style="width:16px; height:16px;"></i></button>
-      <button class="icon-btn" id="rtl-toggle" style="background:var(--input-bg); border:1px solid var(--border-color);"><i data-lucide="align-right" style="width:16px; height:16px;"></i></button>
-    </div>
+
   </div>
 
   <script src="https://unpkg.com/lucide@latest"></script>

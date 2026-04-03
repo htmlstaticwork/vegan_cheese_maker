@@ -6,6 +6,26 @@
   <title>Cheevo | Subscriptions</title>
   <meta name="description" content="Subscribe to our artisanal cheese box deliveries.">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    .faq-accordion { max-width: 800px; margin: 0 auto; }
+    .accordion-item { border-bottom: 1px solid var(--border-color); }
+    .accordion-header {
+      width: 100%; padding: 1.5rem 0; display: flex; justify-content: space-between;
+      align-items: center; background: none; border: none; cursor: pointer;
+      text-align: left; color: var(--primary-color); font-weight: 600;
+      font-size: 1.1rem; transition: var(--transition); font-family: inherit;
+    }
+    [data-theme="dark"] .accordion-header { color: var(--secondary-color); }
+    .accordion-content {
+      max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; opacity: 0;
+    }
+    .accordion-item.active .accordion-content {
+      max-height: 300px; padding-bottom: 1.5rem; opacity: 1;
+    }
+    .chevron { transition: transform 0.3s ease; }
+    .accordion-item.active .chevron { transform: rotate(180deg); }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -67,6 +87,8 @@
       <div class="container slide-in-top">
         <h1 class="section-title" style="margin-bottom:1.5rem; font-family:var(--font-heading); font-size:4rem;">The Connoisseur's Club</h1>
         <p style="font-size:1.2rem; max-width:600px; margin:0 auto;">Curated monthly discoveries delivered cold, fresh, and ready to savor.</p>
+        <p style="font-size:1rem; max-width:700px; margin:1.5rem auto 0; opacity:0.9; font-weight:300; letter-spacing:1px; text-transform:uppercase;">Limited memberships available | Ships nationwide every month</p>
+        <p style="font-size:1.1rem; max-width:650px; margin:1rem auto 0; font-style:italic; opacity:0.8;">"An evolving journey through the world's finest plant-based fromagerie, delivered directly to your doorstep."</p>
       </div>
     </section>
 
@@ -196,6 +218,57 @@
       </div>
     </section>
 
+    <!-- Section 5: FAQ Accordion -->
+    <section class="container fade-in" style="padding: var(--section-padding);">
+      <h2 class="section-title text-center">Frequently Asked Questions</h2>
+      <div class="faq-accordion">
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Are your products gluten-free and soy-free?
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <p style="opacity:0.8;">Absolutely. All of our signature cheeses are 100% gluten-free, soy-free, and dairy-free. They are made strictly from organic cashews, almonds, and macadamias.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            How does shipping work for subscription boxes?
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <p style="opacity:0.8;">We ship monthly boxes during the first week of every month. Orders are sent via priority overnight in insulated, eco-friendly packaging with dry ice or gel packs to ensure freshness.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            How long does the cheese last?
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <p style="opacity:0.8;">Unopened, our aged varieties last up to 6 weeks. Soft rind cheeses should be consumed within 2 weeks. Once opened, wrap in wax paper and enjoy within 7 days.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Can I pause or cancel my membership?
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <p style="opacity:0.8;">Yes! You can pause, skip a month, or cancel your subscription at any time directly through your dashboard without any hidden fees or penalties.</p>
+          </div>
+        </div>
+        <div class="accordion-item" style="border-bottom:none;">
+          <button class="accordion-header">
+            Can I freeze your cheese?
+            <i data-lucide="chevron-down" class="chevron"></i>
+          </button>
+          <div class="accordion-content">
+            <p style="opacity:0.8;">We do not recommend freezing. Freezing alters the crafted artisanal texture and kills the alive probiotics that give our cheese its distinct tang and character.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Section 5: CTA -->
     <section style="background:var(--bg-color); padding: 5rem 2rem; text-align:center;">
       <div class="container fade-in">
@@ -249,5 +322,20 @@
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="script.js"></script>
+  <script>
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isActive = item.classList.contains('active');
+        
+        // Optional: Close others
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+        
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
