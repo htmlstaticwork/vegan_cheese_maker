@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,7 @@
   <title>Cheevo | Subscriptions</title>
   <meta name="description" content="Subscribe to our artisanal cheese box deliveries.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     .faq-accordion { max-width: 800px; margin: 0 auto; }
     .accordion-item { border-bottom: 1px solid var(--border-color); }
@@ -32,7 +32,7 @@
   <header class="site-header">
     <div class="header-container">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+        <img src="favicon.png" alt="Cheevo Logo" class="logo-icon-img"> Cheevo
       </a>
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">Home 1</a>
@@ -58,7 +58,7 @@
   <div class="mobile-menu-overlay" id="mobile-menu">
     <div class="mobile-menu-header">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+        <img src="favicon.png" alt="Cheevo Logo" class="logo-icon-img"> Cheevo
       </a>
       <button class="icon-btn" id="close-menu"><i data-lucide="x"></i></button>
     </div>
@@ -67,7 +67,7 @@
       <a href="home-2.html">Home 2</a>
       <a href="about.html">About</a>
       <a href="shop.html">Shop</a>
-      <a href="subscription.html">Subscription</a>
+      <a href="subscription.html" class="active">Subscription</a>
       <a href="collections.html">Collections</a>
       <a href="contact.html">Contact</a>
       <a href="dashboard.html">Dashboard</a>
@@ -94,10 +94,10 @@
 
     <!-- Section 2: 3 Plans -->
     <section class="container" style="padding: var(--section-padding);">
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap: 2rem; align-items: stretch;">
         
         <!-- Plan 1 -->
-        <div class="product-card fade-in" style="padding: 3rem 2rem; text-align:center;">
+        <div class="product-card fade-in" style="padding: 3.5rem 2rem 3rem; text-align:center; overflow: visible; flex: 1 1 320px; max-width: 400px;">
           <h3 class="mb-2">Tasting Box</h3>
           <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$45 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
           <p class="mb-4" style="opacity:0.8;">An introduction to artisanal plant-based cheese.</p>
@@ -112,7 +112,7 @@
         </div>
 
         <!-- Plan 2 (Popular) -->
-        <div class="product-card fade-in" style="padding: 3rem 2rem; text-align:center; transform: scale(1.05); border: 2px solid var(--secondary-color); position:relative;">
+        <div class="product-card fade-in" style="padding: 3.5rem 2rem 3rem; text-align:center; transform: scale(1.05); border: 2px solid var(--secondary-color); position:relative; overflow: visible; flex: 1 1 320px; max-width: 420px;">
           <div style="position:absolute; top:-15px; left:50%; transform:translateX(-50%); background:var(--secondary-color); color:#121212; padding:0.4rem 1.2rem; border-radius:20px; font-weight:700; font-size:0.8rem; letter-spacing:1px;">MOST POPULAR</div>
           <h3 class="mb-2">Entertainer's Box</h3>
           <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$75 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
@@ -128,7 +128,7 @@
         </div>
 
         <!-- Plan 3 -->
-        <div class="product-card fade-in" style="padding: 3rem 2rem; text-align:center;">
+        <div class="product-card fade-in" style="padding: 3.5rem 2rem 3rem; text-align:center; overflow: visible; flex: 1 1 320px; max-width: 400px;">
           <h3 class="mb-2">Gourmet Box</h3>
           <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$110 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
           <p class="mb-4" style="opacity:0.8;">The ultimate cellar collection for true aficionados.</p>
@@ -284,7 +284,7 @@
     <div class="footer-grid fade-in">
       <div class="footer-col">
         <a href="index.html" class="logo mb-2">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+          <img src="favicon.png" alt="Cheevo Logo" class="logo-icon-img"> Cheevo
         </a>
         <p>Crafting premium, plant-based cheeses with traditional methods.</p>
         <div class="social-icons">
@@ -339,3 +339,5 @@
   </script>
 </body>
 </html>
+
+

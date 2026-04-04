@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
   <title>Cheevo | About Us</title>
   <meta name="description" content="Discover the story behind our artisanal plant-based cheeses.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -15,12 +15,7 @@
   <header class="site-header">
     <div class="header-container">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 12h8" />
-          <path d="M12 8v8" />
-        </svg> Cheevo
+        <i data-lucide="cheese" class="logo-icon"></i> Cheevo
       </a>
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">Home 1</a>
@@ -46,19 +41,14 @@
   <div class="mobile-menu-overlay" id="mobile-menu">
     <div class="mobile-menu-header">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 12h8" />
-          <path d="M12 8v8" />
-        </svg> Cheevo
+        <i data-lucide="cheese" class="logo-icon"></i> Cheevo
       </a>
       <button class="icon-btn" id="close-menu"><i data-lucide="x"></i></button>
     </div>
     <div class="mobile-nav-links">
       <a href="index.html">Home 1</a>
       <a href="home-2.html">Home 2</a>
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="shop.html">Shop</a>
       <a href="subscription.html">Subscription</a>
       <a href="collections.html">Collections</a>
@@ -103,7 +93,7 @@
             the end of the sophisticated cheese board? Our founders, lifelong gastronomes, refused to accept the waxy,
             unfermented alternatives on the market.</p>
           <p class="mb-4">Traveling to the historic caves of Roquefort and the lush pastures of Normandy, we studied
-            under master affineurs. We learned that the magic of cheese isn't in the milk—it's in the microbes, the
+            under master affineurs. We learned that the magic of cheese isn't in the milkâ€”it's in the microbes, the
             time, and the environment.</p>
           <p>By applying these centuries-old techniques to organic, ethically sourced nuts, Cheevo was born in a small
             commercial kitchen. Today, our climate-controlled cellars house thousands of aging wheels, each receiving
@@ -192,22 +182,22 @@
       style="background:var(--card-bg); padding:var(--section-padding); border-top:1px solid var(--border-color);">
       <div class="container">
         <h2 class="section-title fade-in">Meet The Masters</h2>
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem;">
-          <div class="fade-in text-center">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap: 3rem;">
+          <div class="fade-in text-center" style="flex: 0 1 300px;">
             <div class="img-container" style="border-radius:50%; width:200px; height:200px; margin:0 auto 1.5rem;">
               <!-- FIX: High quality non-broken fit images -->
               <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1954&auto=format&fit=crop"
-                alt="Chef Elena" style="width:100%; height:100%; object-fit:cover;">
+                alt="Chef Elena" style="width:100%; height:100%; object-fit:cover; object-position: center 20%;">
             </div>
             <h3 class="mb-1">Elena Rostova</h3>
             <p style="color:var(--secondary-color); font-weight:500; margin-bottom:1rem;">Head Affineur</p>
             <p style="font-size:0.9rem;">Former dairy cheesemaker turned plant-based pioneer, Elena masterminds our
               culture blends.</p>
           </div>
-          <div class="fade-in text-center" style="transition-delay:0.1s;">
+          <div class="fade-in text-center" style="transition-delay:0.1s; flex: 0 1 300px;">
             <div class="img-container" style="border-radius:50%; width:200px; height:200px; margin:0 auto 1.5rem;">
               <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1935&auto=format&fit=crop"
-                alt="Chef Marcus" style="width:100%; height:100%; object-fit:cover;">
+                alt="Chef Marcus" style="width:100%; height:100%; object-fit:cover; object-position: center 20%;">
             </div>
             <h3 class="mb-1">Marcus Chen</h3>
             <p style="color:var(--secondary-color); font-weight:500; margin-bottom:1rem;">Co-Founder & Flavor Director
@@ -215,10 +205,10 @@
             <p style="font-size:0.9rem;">With a background in Michelin-starred kitchens, Marcus develops our seasonal
               infused wheels.</p>
           </div>
-          <div class="fade-in text-center" style="transition-delay:0.2s;">
+          <div class="fade-in text-center" style="transition-delay:0.2s; flex: 0 1 300px;">
             <div class="img-container" style="border-radius:50%; width:200px; height:200px; margin:0 auto 1.5rem;">
               <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
-                alt="Sarah J." style="width:100%; height:100%; object-fit:cover;">
+                alt="Sarah J." style="width:100%; height:100%; object-fit:cover; object-position: center 20%;">
             </div>
             <h3 class="mb-1">Sarah Jenkins</h3>
             <p style="color:var(--secondary-color); font-weight:500; margin-bottom:1rem;">Sustainability Lead</p>
@@ -245,12 +235,7 @@
     <div class="footer-grid fade-in">
       <div class="footer-col">
         <a href="index.html" class="logo mb-2">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M8 12h8" />
-            <path d="M12 8v8" />
-          </svg> Cheevo
+          <i data-lucide="cheese" class="logo-icon"></i> Cheevo
         </a>
         <p>Crafting premium, plant-based cheeses with traditional methods and pure ingredients.</p>
         <div class="social-icons">
@@ -309,3 +294,5 @@
 </body>
 
 </html>
+
+

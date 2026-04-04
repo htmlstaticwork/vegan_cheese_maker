@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cheevo | Member Dashboard</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     :root {
       --sidebar-width: 260px;
@@ -75,7 +75,7 @@
 
     .hide-desktop { display: none; }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 960px) {
       .sidebar { width: 80px; }
       .nav-item span, .logo-text { display: none; }
       .nav-item { justify-content: center; padding: 1.2rem; }
@@ -96,6 +96,31 @@
       .dash-header { padding: 0 1.5rem; }
     }
 
+    @media (max-width: 600px) {
+      .dash-header { padding: 0 1rem; gap: 0.5rem; }
+      .dash-header h3 { font-size: 1rem; white-space: nowrap; }
+      .dash-header div span { display: none; } /* Hide name, keep photo on mobile */
+      
+      .dash-box.welcome-box { 
+        flex-direction: column !important; 
+        align-items: flex-start !important; 
+        gap: 1.5rem !important; 
+        text-align: left !important;
+      }
+      .dash-box.welcome-box .btn { width: 100%; text-align: center; }
+
+      .dash-box table th, 
+      .dash-box table td { 
+        padding: 0.75rem 0.5rem !important; 
+        font-size: 0.8rem !important; 
+      }
+      .dash-box table .btn-link { 
+        font-size: 0.75rem !important; 
+        padding: 0 !important;
+        white-space: nowrap;
+      }
+    }
+
     .dash-section { display: none; animation: fadeIn 0.4s ease forwards; }
     .dash-section.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -108,7 +133,7 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="index.html" class="logo">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-icon"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg> Cheevo
+          <img src="favicon.png" alt="Cheevo Logo" class="logo-icon-img"> <span class="logo-text">Cheevo</span>
         </a>
         <button class="icon-btn hide-desktop" id="close-sidebar"><i data-lucide="x"></i></button>
       </div>
@@ -120,6 +145,7 @@
         <div class="nav-item" data-target="preferences"><i data-lucide="heart"></i> <span>Preferences</span></div>
         <div class="nav-item" data-target="billing"><i data-lucide="credit-card"></i> <span>Billing</span></div>
         <div class="nav-item" data-target="settings"><i data-lucide="settings"></i> <span>Settings</span></div>
+        <a href="index.html" class="nav-item" style="opacity:0.7; margin-top:1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
       </nav>
       
       <div class="sidebar-footer">
@@ -127,7 +153,6 @@
           <button class="icon-btn" id="theme-toggle"><i data-lucide="moon"></i></button>
           <button class="icon-btn" id="rtl-toggle"><i data-lucide="align-right"></i></button>
         </div>
-        <a href="index.html" class="nav-item" style="padding:0.8rem 0; opacity:0.7; margin-top:0.5rem;"><i data-lucide="log-out"></i> <span>Logout</span></a>
       </div>
     </aside>
 
@@ -145,7 +170,7 @@
 
         <!-- 1. Overview -->
         <section id="overview" class="dash-section active">
-          <div class="dash-box" style="background:var(--primary-color); color:#fff; display:flex; justify-content:space-between; align-items:center;">
+          <div class="dash-box welcome-box" style="background:var(--primary-color); color:#fff; display:flex; justify-content:space-between; align-items:center;">
             <div>
               <h1 style="margin:0; font-family:var(--font-heading);">Welcome back, David!</h1>
               <p style="opacity:0.9;">You have 240 reward points available for your next order.</p>
@@ -174,14 +199,14 @@
                     <td>Sep 15, 2026</td>
                     <td><span style="background:rgba(44,76,59,0.1); color:var(--primary-color); padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Delivered</span></td>
                     <td>$75.00</td>
-                    <td><button style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
+                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
                   </tr>
                   <tr style="border-bottom:1px solid var(--border-color);">
                     <td style="padding:1rem; font-weight:600;">#CH-8801</td>
                     <td>Aug 15, 2026</td>
                     <td><span style="background:rgba(44,76,59,0.1); color:var(--primary-color); padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Delivered</span></td>
                     <td>$75.00</td>
-                    <td><button style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
+                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -320,3 +345,5 @@
   </script>
 </body>
 </html>
+
+

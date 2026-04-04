@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
   <title>Cheevo | Home Premium</title>
   <meta name="description" content="A premium experience of artisanal plant-based cheeses.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png">
   <style>
     .hero-2 {
       height: 90vh;
@@ -46,15 +46,23 @@
     .hero-2-content {
       position: relative;
       z-index: 1;
-      max-width: 800px;
+      max-width: 900px;
       padding: 2rem;
+      width: 100%;
       color: #fff;
     }
 
+    .hero-2-content h1 {
+      font-size: clamp(2.2rem, 10vw, 5rem) !important;
+      line-height: 1.1;
+      word-wrap: break-word;
+    }
+
     .hero-2-title {
-      font-size: 5rem;
+      font-size: clamp(2.2rem, 10vw, 5rem);
       margin-bottom: 1rem;
       font-weight: 400;
+      line-height: 1.1;
       font-style: italic;
       color: #fff;
       text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -100,12 +108,7 @@
   <header class="site-header">
     <div class="header-container">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 12h8" />
-          <path d="M12 8v8" />
-        </svg> Cheevo
+        <i data-lucide="cheese" class="logo-icon"></i> Cheevo
       </a>
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">Home 1</a>
@@ -131,18 +134,13 @@
   <div class="mobile-menu-overlay" id="mobile-menu">
     <div class="mobile-menu-header">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 12h8" />
-          <path d="M12 8v8" />
-        </svg> Cheevo
+        <i data-lucide="cheese" class="logo-icon"></i> Cheevo
       </a>
       <button class="icon-btn" id="close-menu"><i data-lucide="x"></i></button>
     </div>
     <div class="mobile-nav-links">
       <a href="index.html">Home 1</a>
-      <a href="home-2.html">Home 2</a>
+      <a href="home-2.html" class="active">Home 2</a>
       <a href="about.html">About</a>
       <a href="shop.html">Shop</a>
       <a href="subscription.html">Subscription</a>
@@ -180,7 +178,7 @@
     </section>
 
     <!-- Section 2: Flavor Profiles Grid -->
-    <section class="container" style="padding: var(--section-padding);">
+    <section class="container" style="padding: 3rem 2rem;">
       <h2 class="section-title fade-in">Distinct Flavor Profiles</h2>
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
         <div class="flavor-profile-card fade-in">
@@ -213,7 +211,7 @@
     </section>
 
     <!-- Section 3: Customer Stories (Updated) -->
-    <section style="background:var(--primary-color); color:#fff; padding: var(--section-padding);">
+    <section style="background:var(--primary-color); color:#fff; padding: 3rem 0;">
       <div class="container text-center">
         <h2 class="section-title fade-in" style="color:var(--secondary-color);">The Cultured Community</h2>
         <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
@@ -234,10 +232,10 @@
     </section>
 
     <!-- Section 4: Best Sellers (Chef's Reserve) -->
-    <section class="container" style="padding: var(--section-padding);">
+    <section class="container" style="padding: 3rem 2rem;">
       <h2 class="section-title fade-in">Chef's Reserve Line</h2>
-      <div class="product-grid">
-        <div class="product-card fade-in">
+      <div class="product-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2.5rem;">
+        <div class="product-card fade-in" style="flex: 1 1 300px; max-width: 400px;">
           <div class="product-img"><img
               src="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=2106&auto=format&fit=crop"
               alt="Reserve Blue"></div>
@@ -247,7 +245,7 @@
             <a href="shop.html" class="btn btn-secondary" style="width:100%;">View Details</a>
           </div>
         </div>
-        <div class="product-card fade-in" style="transition-delay:0.1s;">
+        <div class="product-card fade-in" style="transition-delay:0.1s; flex: 1 1 300px; max-width: 400px;">
           <div class="product-img"><img src="https://images.pexels.com/photos/15510946/pexels-photo-15510946.jpeg"
               alt="Reserve Camembert"></div>
           <div class="product-info">
@@ -256,7 +254,7 @@
             <a href="shop.html" class="btn btn-secondary" style="width:100%;">View Details</a>
           </div>
         </div>
-        <div class="product-card fade-in" style="transition-delay:0.2s;">
+        <div class="product-card fade-in" style="transition-delay:0.2s; flex: 1 1 300px; max-width: 400px;">
           <div class="product-img"><img src="https://images.pexels.com/photos/15754940/pexels-photo-15754940.jpeg"
               alt="Reserve Ash"></div>
           <div class="product-info">
@@ -271,7 +269,7 @@
     <!-- Section 5: Brand Story -->
     <section
       style="background:var(--card-bg); border-top:1px solid var(--border-color); border-bottom:1px solid var(--border-color);">
-      <div class="container" style="padding: 6rem 2rem; text-align:center;">
+      <div class="container" style="padding: 3rem 2rem; text-align:center;">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--secondary-color)" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round" class="fade-in mb-3" style="margin:0 auto;">
           <circle cx="12" cy="12" r="10" />
@@ -288,7 +286,7 @@
     </section>
 
     <!-- Section 6: CTA Banner -->
-    <section class="container" style="padding: var(--section-padding);">
+    <section class="container" style="padding: 3rem 2rem;">
       <div
         style="background-image:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=2073&auto=format&fit=crop'); background-size:cover; background-position:center; background-attachment:fixed; padding:6rem 2rem; border-radius:var(--border-radius); text-align:center; color:#fff;"
         class="fade-in">
@@ -307,12 +305,7 @@
     <div class="footer-grid fade-in">
       <div class="footer-col">
         <a href="index.html" class="logo mb-2">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M8 12h8" />
-            <path d="M12 8v8" />
-          </svg> Cheevo
+          <i data-lucide="cheese" class="logo-icon"></i> Cheevo
         </a>
         <p>Crafting premium, plant-based cheeses with traditional methods and pure ingredients.</p>
         <div class="social-icons">
@@ -371,3 +364,5 @@
 </body>
 
 </html>
+
+

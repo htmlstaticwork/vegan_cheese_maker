@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,7 +7,7 @@
   <title>Cheevo | Collections</title>
   <meta name="description" content="Explore our expertly curated artisanal plant-based cheese collections.">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
@@ -15,12 +15,7 @@
   <header class="site-header">
     <div class="header-container">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 12h8" />
-          <path d="M12 8v8" />
-        </svg> Cheevo
+        <i data-lucide="cheese" class="logo-icon"></i> Cheevo
       </a>
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">Home 1</a>
@@ -46,12 +41,7 @@
   <div class="mobile-menu-overlay" id="mobile-menu">
     <div class="mobile-menu-header">
       <a href="index.html" class="logo">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-          <circle cx="12" cy="12" r="10" />
-          <path d="M8 12h8" />
-          <path d="M12 8v8" />
-        </svg> Cheevo
+        <i data-lucide="cheese" class="logo-icon"></i> Cheevo
       </a>
       <button class="icon-btn" id="close-menu"><i data-lucide="x"></i></button>
     </div>
@@ -61,7 +51,7 @@
       <a href="about.html">About</a>
       <a href="shop.html">Shop</a>
       <a href="subscription.html">Subscription</a>
-      <a href="collections.html">Collections</a>
+      <a href="collections.html" class="active">Collections</a>
       <a href="contact.html">Contact</a>
       <a href="dashboard.html">Dashboard</a>
     </div>
@@ -94,22 +84,22 @@
     <section id="explore" style="padding: var(--section-padding); background:var(--card-bg);">
       <div class="container text-center">
         <h2 class="section-title fade-in">Browse By Affinage</h2>
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap: 2rem;">
           <a href="#" class="fade-in img-container"
-            style="border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none;">
+            style="border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none; flex: 1 1 280px; max-width: 350px;">
             <i data-lucide="sun" style="width:48px; height:48px; color:var(--primary-color); margin-bottom:1.5rem;"></i>
             <h3 style="color:var(--text-color);">Soft & Bloomy</h3>
-            <p style="color:var(--text-color); opacity:0.7;">Camemberts and Chèvres</p>
+            <p style="color:var(--text-color); opacity:0.7;">Camemberts and ChÃ¨vres</p>
           </a>
           <a href="#" class="fade-in img-container"
-            style="transition-delay:0.1s; border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none;">
+            style="transition-delay:0.1s; border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none; flex: 1 1 280px; max-width: 350px;">
             <i data-lucide="clock"
               style="width:48px; height:48px; color:var(--primary-color); margin-bottom:1.5rem;"></i>
             <h3 style="color:var(--text-color);">Aged & Hard</h3>
             <p style="color:var(--text-color); opacity:0.7;">Sharp Cheddars and Goudas</p>
           </a>
           <a href="#" class="fade-in img-container"
-            style="transition-delay:0.2s; border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none;">
+            style="transition-delay:0.2s; border:1px solid var(--border-color); border-radius:var(--border-radius); padding:2rem; background:var(--bg-color); transition:var(--transition); text-decoration:none; flex: 1 1 280px; max-width: 350px;">
             <i data-lucide="wind"
               style="width:48px; height:48px; color:var(--primary-color); margin-bottom:1.5rem;"></i>
             <h3 style="color:var(--text-color);">Pungent & Blue</h3>
@@ -123,13 +113,13 @@
     <section style="padding: var(--section-padding); background:var(--primary-color); color:#fff; overflow:hidden;">
       <div class="container">
         <div class="grid-stack">
-          <div class="slide-in-left">
+          <div class="slide-in-left" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
             <h2 class="mb-3" style="font-family:var(--font-heading); font-size:3rem; color:var(--secondary-color);">The
               Autumn Harvest</h2>
             <p class="mb-4" style="font-size:1.1rem; opacity:0.9;">A limited-edition collection featuring smoked hickory
               infused cheddar, cranberry-studded goat-style logs, and our famous truffle camembert. Perfect for your
               upcoming gatherings.</p>
-            <ul style="margin-bottom:2rem; opacity:0.9;">
+            <ul style="margin-bottom:2rem; opacity:0.9; width: fit-content; list-style: none; padding: 0; text-align: left;">
               <li style="margin-bottom:0.5rem; display:flex; gap:0.5rem;"><i data-lucide="check-circle"></i> 4 Full
                 Wheels</li>
               <li style="margin-bottom:0.5rem; display:flex; gap:0.5rem;"><i data-lucide="check-circle"></i> Spiced
@@ -151,9 +141,9 @@
     <!-- Section 4: Featured Collection Grid -->
     <section class="container" style="padding: var(--section-padding);">
       <h2 class="section-title fade-in">Reserve Bundles</h2>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap: 3rem;">
         <div class="fade-in"
-          style="background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden;">
+          style="background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden; flex: 1 1 300px; max-width: 400px;">
           <img src="https://images.pexels.com/photos/33815578/pexels-photo-33815578.jpeg" alt="Smoked Bundle"
             style="height:250px; width:100%; object-fit:cover;">
           <div style="padding:2rem; text-align:center;">
@@ -164,7 +154,7 @@
           </div>
         </div>
         <div class="fade-in"
-          style="transition-delay:0.1s; background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden;">
+          style="transition-delay:0.1s; background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden; flex: 1 1 300px; max-width: 400px;">
           <img src="https://images.pexels.com/photos/25877614/pexels-photo-25877614.jpeg" alt="Bloomy Bundle"
             style="height:250px; width:100%; object-fit:cover;">
           <div style="padding:2rem; text-align:center;">
@@ -175,7 +165,7 @@
           </div>
         </div>
         <div class="fade-in"
-          style="transition-delay:0.2s; background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden;">
+          style="transition-delay:0.2s; background:var(--card-bg); border-radius:var(--border-radius); border:1px solid var(--border-color); overflow:hidden; flex: 1 1 300px; max-width: 400px;">
           <img src="https://images.pexels.com/photos/29412671/pexels-photo-29412671.jpeg" alt="Artisan Grand"
             style="height:250px; width:100%; object-fit:cover;">
           <div style="padding:2rem; text-align:center;">
@@ -206,12 +196,7 @@
     <div class="footer-grid fade-in">
       <div class="footer-col">
         <a href="index.html" class="logo mb-2">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-            stroke-linecap="round" stroke-linejoin="round" class="logo-icon">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M8 12h8" />
-            <path d="M12 8v8" />
-          </svg> Cheevo
+          <i data-lucide="cheese" class="logo-icon"></i> Cheevo
         </a>
         <p>Crafting premium, plant-based cheeses with traditional methods and pure ingredients.</p>
         <div class="social-icons">
@@ -270,3 +255,5 @@
 </body>
 
 </html>
+
+
