@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -25,6 +25,30 @@
     }
     .chevron { transition: transform 0.3s ease; }
     .accordion-item.active .chevron { transform: rotate(180deg); }
+
+    .plan-features {
+      display: inline-block;
+      text-align: left;
+      margin: 0 auto 2rem;
+      padding: 0;
+      list-style: none;
+    }
+
+    @media (max-width: 1024px) {
+      .subscription-section {
+        padding-left: 2.5rem !important;
+        padding-right: 2.5rem !important;
+      }
+      .product-card {
+        margin-bottom: 1rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .subscription-section {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -93,7 +117,7 @@
     </section>
 
     <!-- Section 2: 3 Plans -->
-    <section class="container" style="padding: var(--section-padding);">
+    <section class="container subscription-section" style="padding: var(--section-padding);">
       <div style="display:flex; flex-wrap:wrap; justify-content:center; gap: 2rem; align-items: stretch;">
         
         <!-- Plan 1 -->
@@ -102,7 +126,7 @@
           <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$45 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
           <p class="mb-4" style="opacity:0.8;">An introduction to artisanal plant-based cheese.</p>
           <hr style="border:0; border-top:1px solid var(--border-color); margin: 2rem 0;">
-          <ul style="text-align:left; margin-bottom: 2rem; opacity:0.9;">
+          <ul class="plan-features" style="opacity:0.9;">
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> 3 Seasonal Wheels</li>
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Tasting Notes</li>
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Priority Shipping</li>
@@ -118,7 +142,7 @@
           <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$75 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
           <p class="mb-4" style="opacity:0.8;">Everything you need for the perfect gathering.</p>
           <hr style="border:0; border-top:1px solid var(--border-color); margin: 2rem 0;">
-          <ul style="text-align:left; margin-bottom: 2rem; opacity:0.9;">
+          <ul class="plan-features" style="opacity:0.9;">
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> 5 Artisanal Wheels</li>
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Curated Crackers</li>
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Organic Fruit Jam</li>
@@ -133,7 +157,7 @@
           <p class="product-price" style="font-size: 2.5rem; color:var(--text-color);">$110 <span style="font-size:1rem; opacity:0.7; font-weight:400;">/ month</span></p>
           <p class="mb-4" style="opacity:0.8;">The ultimate cellar collection for true aficionados.</p>
           <hr style="border:0; border-top:1px solid var(--border-color); margin: 2rem 0;">
-          <ul style="text-align:left; margin-bottom: 2rem; opacity:0.9;">
+          <ul class="plan-features" style="opacity:0.9;">
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> 7 Premium Wheels</li>
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Reserve Line Access</li>
             <li style="margin-bottom:1rem; display:flex; gap:0.5rem;"><i data-lucide="check" style="color:var(--primary-color);"></i> Premium Accompaniments</li>
@@ -170,7 +194,7 @@
     </section>
 
     <!-- Section 4: Comparison List -->
-    <section class="container" style="padding: var(--section-padding);">
+    <section class="container subscription-section" style="padding: var(--section-padding);">
       <h2 class="section-title fade-in text-center">Compare The Benefits</h2>
       <div class="fade-in" style="overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; text-align:left; background:var(--card-bg); border-radius:var(--border-radius); overflow:hidden; border:1px solid var(--border-color);">
