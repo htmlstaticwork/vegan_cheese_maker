@@ -53,6 +53,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -60,9 +62,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-  overflow-x: hidden; /* Fallback for safe layout */
+  overflow-x: hidden;
   width: 100%;
   transition: background-color 0.3s, color 0.3s;
+  position: relative;
 }
 
 /* Global Responsive Layout Fixes */
@@ -72,6 +75,7 @@ body {
 
 html, body {
   max-width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
@@ -128,9 +132,22 @@ img {
   height: auto;
   border-radius: var(--border-radius);
   object-fit: cover;
+  display: block;
 }
 
-/* Typography styles */
+.testimonial-card {
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  flex: 1 1 280px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
 .section-title {
   font-size: 2.5rem;
   text-align: center;
@@ -652,7 +669,7 @@ main {
 /* Featured Cheeses */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
   padding: var(--section-padding);
 }
@@ -1080,4 +1097,78 @@ main {
   .dash-menu-toggle {
     display: block;
   }
+}
+
+/* Responsive Fixes for Horizontal Scrolling & Content Fitting */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3rem 1.25rem;
+  }
+
+  .container {
+    padding: 0 1.25rem !important;
+  }
+
+  .hero-1-content, 
+  .hero-2-content,
+  .hero-1-title,
+  .hero-2-title {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100% !important;
+  }
+
+  .hero-1-title { font-size: 2.8rem !important; }
+  .hero-2-title { font-size: 2.5rem !important; }
+
+  /* Handle large inline paddings */
+  [style*="padding: 10rem"], [style*="padding:10rem"] {
+    padding: 5rem 1.25rem !important;
+  }
+
+  [style*="padding:4rem"], [style*="padding: 4rem"] {
+    padding: 2rem 1.25rem !important;
+  }
+
+  .form-input {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .product-grid, .grid-stack {
+    gap: 1.5rem !important;
+  }
+
+  .product-card, 
+  .auth-card, 
+  .dash-box,
+  .flavor-profile-card {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex-basis: 100% !important;
+  }
+
+  /* Ensure long text doesn't push width */
+  h1, h2, h3, p, a, span {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Fix for elements that might have large fixed heights on mobile */
+  [style*="height: 500px"], [style*="height:500px"] {
+    height: 300px !important;
+  }
+
+  .testimonial-card {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 1.5rem 1rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-1-title { font-size: 2.2rem !important; }
+  .section-title { font-size: 2rem !important; }
 }
