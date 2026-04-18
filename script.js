@@ -5,18 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Theme Toggle
-  const themeToggle = document.getElementById('theme-toggle');
-  const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-  
+  const themeToggles = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle, #header-theme-toggle');
   const toggleTheme = () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
   };
-
-  if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
-  if (mobileThemeToggle) mobileThemeToggle.addEventListener('click', toggleTheme);
+  themeToggles.forEach(btn => btn.addEventListener('click', toggleTheme));
 
   // Set initial theme
   const savedTheme = localStorage.getItem('theme');
@@ -25,18 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // RTL Toggle
-  const rtlToggle = document.getElementById('rtl-toggle');
-  const mobileRtlToggle = document.getElementById('mobile-rtl-toggle');
-  
+  const rtlToggles = document.querySelectorAll('#rtl-toggle, #mobile-rtl-toggle, #header-rtl-toggle');
   const toggleRTL = () => {
     const currentDir = document.documentElement.getAttribute('dir');
     const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
     document.documentElement.setAttribute('dir', newDir);
     localStorage.setItem('dir', newDir);
   };
-
-  if (rtlToggle) rtlToggle.addEventListener('click', toggleRTL);
-  if (mobileRtlToggle) mobileRtlToggle.addEventListener('click', toggleRTL);
+  rtlToggles.forEach(btn => btn.addEventListener('click', toggleRTL));
 
   // Set initial RTL
   const savedDir = localStorage.getItem('dir');

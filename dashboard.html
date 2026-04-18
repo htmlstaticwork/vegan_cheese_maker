@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -55,6 +55,7 @@
     /* Main Content */
     .main-content { flex: 1; margin-left: var(--sidebar-width); min-width: 0; }
     .dash-header { height: 70px; background: var(--dash-card); border-bottom: 1px solid var(--border-color); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 900; }
+    .dash-header .icon-btn, .dash-header .btn { height: 44px !important; display: flex !important; align-items: center !important; justify-content: center !important; }
     
     .dash-body { padding: 2rem; max-width: 1400px; margin: 0 auto; }
     
@@ -119,6 +120,27 @@
         padding: 0 !important;
         white-space: nowrap;
       }
+      .dash-grid-top { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+      .dash-grid-half { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+      .shipment-flex { display: flex; align-items: center; gap: 2rem; }
+
+      @media (max-width: 1100px) {
+        .dash-grid-top, .dash-grid-half, .journal-grid { grid-template-columns: 1fr !important; }
+      }
+      
+      @media (max-width: 600px) {
+        .shipment-flex { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+        .shipment-flex button { width: 100%; }
+        .shipment-flex i { display: none; } /* Hide icon to save space on very small mobile */
+        
+        .dash-box.welcome-box { padding: 1.5rem !important; }
+        .pref-grid { grid-template-columns: 1fr !important; }
+      }
+
+      .journal-grid { display: grid; grid-template-columns: 1fr 300px; gap: 1.5rem; align-items: start; }
+      @media (max-width: 1100px) {
+        .journal-grid { grid-template-columns: 1fr; }
+      }
     }
 
     .dash-section { display: none; animation: fadeIn 0.4s ease forwards; }
@@ -133,7 +155,7 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <a href="index.html" class="logo">
-          <img src="favicon.png" alt="Cheevo Logo" class="logo-icon-img"> <span class="logo-text">Cheevo</span>
+          <img src="brand-logo.png" alt="Cheevo Logo" class="logo-icon-img"> <span class="logo-text">Cheevo</span>
         </a>
         <button class="icon-btn hide-desktop" id="close-sidebar"><i data-lucide="x"></i></button>
       </div>
@@ -142,6 +164,8 @@
         <div class="nav-item active" data-target="overview"><i data-lucide="layout-dashboard"></i> <span>Overview</span></div>
         <div class="nav-item" data-target="orders"><i data-lucide="shopping-bag"></i> <span>Orders</span></div>
         <div class="nav-item" data-target="subscriptions"><i data-lucide="calendar"></i> <span>Subscriptions</span></div>
+        <div class="nav-item" data-target="journal"><i data-lucide="book-open"></i> <span>Tasting Journal</span></div>
+        <div class="nav-item" data-target="rewards"><i data-lucide="award"></i> <span>Rewards</span></div>
         <div class="nav-item" data-target="preferences"><i data-lucide="heart"></i> <span>Preferences</span></div>
         <div class="nav-item" data-target="billing"><i data-lucide="credit-card"></i> <span>Billing</span></div>
         <div class="nav-item" data-target="settings"><i data-lucide="settings"></i> <span>Settings</span></div>
@@ -151,7 +175,7 @@
       <div class="sidebar-footer">
         <div>
           <button class="icon-btn" id="theme-toggle"><i data-lucide="moon"></i></button>
-          <button class="icon-btn" id="rtl-toggle"><i data-lucide="align-right"></i></button>
+          <button class="icon-btn rtl-toggle-btn" id="rtl-toggle">RTL</button>
         </div>
       </div>
     </aside>
@@ -161,8 +185,12 @@
         <button class="icon-btn hide-desktop" id="open-sidebar"><i data-lucide="menu"></i></button>
         <h3>Dashboard Overview</h3>
         <div style="display:flex; align-items:center; gap:1rem;">
-          <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
-          <span style="font-weight:600;">David M.</span>
+          <button class="icon-btn" id="header-theme-toggle"><i data-lucide="moon"></i></button>
+          <button class="icon-btn rtl-toggle-btn" id="header-rtl-toggle">RTL</button>
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-left: 0.5rem;">
+            <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop" style="width:35px; height:35px; border-radius:50%; object-fit:cover;">
+            <span style="font-weight:600;" class="hide-mobile">David M.</span>
+          </div>
         </div>
       </header>
 
@@ -184,29 +212,100 @@
             <div class="dash-box" style="margin:0;"><p style="font-size:0.8rem; opacity:0.7; margin:0 0 0.5rem 0;">Next Box</p><h4 style="margin:0; font-size:1.3rem;">Oct 15, 2026</h4></div>
             <div class="dash-box" style="margin:0;"><p style="font-size:0.8rem; opacity:0.7; margin:0 0 0.5rem 0;">Credits</p><h4 style="margin:0; font-size:1.3rem;">$12.50</h4></div>
           </div>
+
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:1.5rem;">
+            <div class="dash-box">
+              <div class="box-header"><h3>Recommended Pairings</h3><a href="#" class="btn-link" style="font-size:0.8rem;">View Guide</a></div>
+              <p style="font-size:0.9rem; opacity:0.8; margin-bottom:1.5rem;">For your current <strong>Smoked Cashew Cheddar</strong>:</p>
+              <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <div style="flex:1; min-width:100px; text-align:center; padding:1rem; background:var(--bg-color); border-radius:8px;">
+                  <i data-lucide="glass-water" style="color:var(--secondary-color); margin-bottom:0.5rem; width:20px;"></i>
+                  <p style="font-size:0.75rem; font-weight:600; margin:0;">Chardonnay</p>
+                </div>
+                <div style="flex:1; min-width:100px; text-align:center; padding:1rem; background:var(--bg-color); border-radius:8px;">
+                  <i data-lucide="leaf" style="color:var(--secondary-color); margin-bottom:0.5rem; width:20px;"></i>
+                  <p style="font-size:0.75rem; font-weight:600; margin:0;">Walnuts</p>
+                </div>
+                <div style="flex:1; min-width:100px; text-align:center; padding:1rem; background:var(--bg-color); border-radius:8px;">
+                  <i data-lucide="apple" style="color:var(--secondary-color); margin-bottom:0.5rem; width:20px;"></i>
+                  <p style="font-size:0.75rem; font-weight:600; margin:0;">Gala Apples</p>
+                </div>
+              </div>
+            </div>
+            <div class="dash-box" style="background:var(--accent-soft); border-color:var(--secondary-color);">
+              <h3>Give $15, Get $15</h3>
+              <p style="font-size:0.85rem; margin-bottom:1.2rem;">Invite friends to Cheevo and you'll both get credits towards your next box.</p>
+              <div style="background:var(--dash-card); padding:0.6rem; border-radius:4px; border:1px dashed var(--secondary-color); font-family:monospace; font-size:0.9rem; margin-bottom:1.2rem; text-align:center;">
+                CHEEVO-DAVE-2026
+              </div>
+              <button class="btn btn-primary" style="width:100%;">Share Link</button>
+            </div>
+          </div>
         </section>
 
         <!-- 2. Orders -->
         <section id="orders" class="dash-section">
+          <div class="dash-grid-top">
+            <div class="dash-box" style="margin:0;">
+              <div class="box-header">
+                <h3>Active Shipment</h3>
+                <span class="status-tag" style="background:var(--accent-soft); color:var(--secondary-color); padding:0.2rem 0.8rem; border-radius:15px; font-size:0.75rem; font-weight:600;">In Transit</span>
+              </div>
+              <div class="shipment-flex">
+                 <i data-lucide="truck" style="width:40px; height:40px; color:var(--primary-color);"></i>
+                 <div style="flex:1;">
+                   <p style="margin:0; font-weight:600;">Order #CH-9102</p>
+                   <p style="margin:0; font-size:0.85rem; opacity:0.7;">Estimated Arrival: **Oct 12, 2026**</p>
+                   <div style="height:6px; background:var(--bg-color); border-radius:3px; margin-top:0.8rem; overflow:hidden;">
+                     <div style="width:65%; height:100%; background:var(--primary-color);"></div>
+                   </div>
+                 </div>
+                 <button class="btn btn-secondary btn-sm">Track Package</button>
+              </div>
+            </div>
+            <div class="dash-box" style="margin:0; background:var(--accent-soft);">
+              <h3 style="font-size:1.1rem; margin-bottom:1rem;">Quick Reorder</h3>
+              <div style="display:flex; align-items:center; gap:0.8rem; margin-bottom:1rem;">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=40&auto=format&fit=crop" style="width:40px; height:40px; border-radius:4px; object-fit:cover;">
+                <p style="font-size:0.85rem; font-weight:600; margin:0;">Smoked Cheddar</p>
+              </div>
+              <button class="btn btn-primary" style="width:100%; padding:0.5rem;">Reorder Now</button>
+            </div>
+          </div>
+
           <div class="dash-box">
-            <div class="box-header"><h3>Recent Orders</h3></div>
+            <div class="box-header"><h3>Order History</h3></div>
             <div style="overflow-x:auto;">
               <table style="width:100%; border-collapse:collapse; text-align:left;">
-                <thead><tr style="opacity:0.6; font-size:0.8rem; border-bottom:1px solid var(--border-color);"><th style="padding:1rem;">ID</th><th>DATE</th><th>STATUS</th><th>AMOUNT</th><th>ACTION</th></tr></thead>
+                <thead><tr style="opacity:0.6; font-size:0.8rem; border-bottom:1px solid var(--border-color);"><th style="padding:1.2rem 1rem;">ID</th><th>DATE</th><th>STATUS</th><th>AMOUNT</th><th>ACTION</th></tr></thead>
                 <tbody>
                   <tr style="border-bottom:1px solid var(--border-color);">
-                    <td style="padding:1rem; font-weight:600;">#CH-8924</td>
+                    <td style="padding:1.2rem 1rem; font-weight:600;">#CH-8924</td>
                     <td>Sep 15, 2026</td>
                     <td><span style="background:rgba(44,76,59,0.1); color:var(--primary-color); padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Delivered</span></td>
                     <td>$75.00</td>
-                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
+                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">Invoice</button></td>
                   </tr>
                   <tr style="border-bottom:1px solid var(--border-color);">
-                    <td style="padding:1rem; font-weight:600;">#CH-8801</td>
+                    <td style="padding:1.2rem 1rem; font-weight:600;">#CH-8801</td>
                     <td>Aug 15, 2026</td>
                     <td><span style="background:rgba(44,76,59,0.1); color:var(--primary-color); padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Delivered</span></td>
                     <td>$75.00</td>
-                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">View Details</button></td>
+                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">Invoice</button></td>
+                  </tr>
+                  <tr style="border-bottom:1px solid var(--border-color);">
+                    <td style="padding:1.2rem 1rem; font-weight:600;">#CH-8652</td>
+                    <td>Jul 15, 2026</td>
+                    <td><span style="background:rgba(44,76,59,0.1); color:var(--primary-color); padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Delivered</span></td>
+                    <td>$92.00</td>
+                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">Invoice</button></td>
+                  </tr>
+                  <tr>
+                    <td style="padding:1.2rem 1rem; font-weight:600;">#CH-8411</td>
+                    <td>Jun 15, 2026</td>
+                    <td><span style="background:rgba(255,100,0,0.1); color:#ff6400; padding:0.2rem 0.6rem; border-radius:10px; font-size:0.7rem; font-weight:700;">Returned</span></td>
+                    <td>$45.00</td>
+                    <td><button class="btn-link" style="background:none; border:none; color:var(--secondary-color); cursor:pointer; font-weight:600;">Details</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -218,11 +317,15 @@
         <section id="subscriptions" class="dash-section">
           <div class="dash-box">
             <div class="box-header"><h3>Current Subscription</h3><span style="background:var(--secondary-color); color:#fff; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.8rem;">Active</span></div>
-            <div class="grid-stack">
+            <div class="grid-stack" style="gap:2rem;">
               <div>
                 <p><strong>Plan:</strong> The Tasting Box (Monthly)</p>
                 <p><strong>Renewal:</strong> Oct 15, 2026</p>
                 <p><strong>Benefits:</strong> 3 Seasonal Wheels, Tasting Notes, Priority Shipping.</p>
+                <div style="margin-top:1.5rem; padding:1rem; background:var(--bg-color); border-radius:8px; display:inline-block;">
+                  <p style="margin:0; font-size:0.85rem; font-weight:600;">Member Since: **Jan 2026**</p>
+                  <p style="margin:0; font-size:0.8rem; opacity:0.7;">8 consecutive months of artisanal discovery.</p>
+                </div>
               </div>
               <div style="display:flex; flex-direction:column; gap:0.5rem;">
                 <button class="btn btn-primary" style="width:100%;">Upgrade Plan</button>
@@ -231,13 +334,47 @@
               </div>
             </div>
           </div>
+
+          <div class="dash-grid-half">
+            <div class="dash-box">
+              <div class="box-header"><h3>Next Box Sneak Peek</h3></div>
+              <p style="font-size:0.85rem; opacity:0.8; margin-bottom:1.2rem;">Arriving around Oct 18th. Here is what we are aging for you:</p>
+              <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1rem;">
+                <div style="text-align:center;">
+                  <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=60&auto=format&fit=crop" style="width:60px; height:60px; border-radius:50%; object-fit:cover; margin-bottom:0.5rem; border:2px solid var(--secondary-color);">
+                  <p style="font-size:0.7rem; font-weight:600; margin:0;">Truffle Brie</p>
+                </div>
+                <div style="text-align:center;">
+                  <img src="https://images.pexels.com/photos/5250399/pexels-photo-5250399.jpeg" style="width:60px; height:60px; border-radius:50%; object-fit:cover; margin-bottom:0.5rem; border:2px solid var(--secondary-color);">
+                  <p style="font-size:0.7rem; font-weight:600; margin:0;">Spicy Jack</p>
+                </div>
+                <div style="text-align:center;">
+                  <img src="https://images.pexels.com/photos/31610377/pexels-photo-31610377.jpeg" style="width:60px; height:60px; border-radius:50%; object-fit:cover; margin-bottom:0.5rem; border:2px solid var(--secondary-color);">
+                  <p style="font-size:0.7rem; font-weight:600; margin:0;">Reserve Blue</p>
+                </div>
+              </div>
+            </div>
+            <div class="dash-box">
+              <div class="box-header"><h3>Upcoming Deliveries</h3></div>
+              <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:1rem;">
+                <li style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-color); padding-bottom:0.8rem;">
+                  <div><p style="margin:0; font-weight:600; font-size:0.9rem;">October Delivery</p><p style="margin:0; font-size:0.8rem; opacity:0.6;">Est. Oct 15 - Oct 18</p></div>
+                  <span style="font-size:0.8rem; color:var(--primary-color); font-weight:600;">Processing</span>
+                </li>
+                <li style="display:flex; justify-content:space-between; align-items:center;">
+                  <div><p style="margin:0; font-weight:600; font-size:0.9rem;">November Delivery</p><p style="margin:0; font-size:0.8rem; opacity:0.6;">Est. Nov 15 - Nov 18</p></div>
+                  <span style="font-size:0.8rem; opacity:0.5;">Pending</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <!-- 4. Preferences -->
         <section id="preferences" class="dash-section">
           <div class="dash-box">
-            <h3>Taste Profile</h3>
-            <p style="opacity:0.7; font-size:0.9rem;">Help us curate your monthly box by selecting your favorite flavor families.</p>
+            <h3 style="margin-bottom:0.5rem;">Taste Profile</h3>
+            <p style="opacity:0.7; font-size:0.9rem; margin-bottom:1.5rem;">Select your favorite flavor families to help us curate your monthly box.</p>
             <div class="pref-grid">
               <div class="check-card active">Sharp & Aged</div>
               <div class="check-card">Creamy & Soft</div>
@@ -246,12 +383,50 @@
               <div class="check-card">Sweet & Fruity</div>
               <div class="check-card active">Spicy / Chili</div>
             </div>
-            <div style="margin-top:1.5rem;">
-              <p><strong>Dietary Preferences:</strong></p>
-              <label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;"><input type="checkbox" checked> Soy-Free Only</label>
-              <label style="display:flex; align-items:center; gap:0.5rem;"><input type="checkbox"> Nut-Free Only (Seeds-Based)</label>
+
+            <div style="margin-top:2.5rem;">
+               <h3 style="margin-bottom:0.5rem;">Texture & Consistency</h3>
+               <p style="opacity:0.7; font-size:0.9rem; margin-bottom:1.5rem;">Tell us which textures you enjoy most for your plant-based cheeses.</p>
+               <div class="pref-grid">
+                 <div class="check-card active">Firm & Sliceable</div>
+                 <div class="check-card active">Spreadable</div>
+                 <div class="check-card">Crumbly</div>
+                 <div class="check-card">Grated / Hard</div>
+               </div>
             </div>
-            <button class="btn btn-primary" style="margin-top:2rem;">Save Preferences</button>
+
+            <div class="dash-grid-half">
+               <div>
+                 <h3 style="margin-bottom:1rem;">Usage Occasions</h3>
+                 <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                   <label style="display:flex; align-items:center; gap:0.7rem; cursor:pointer;"><input type="checkbox" checked> Daily Snacking</label>
+                   <label style="display:flex; align-items:center; gap:0.7rem; cursor:pointer;"><input type="checkbox" checked> Hosting & Charcuterie</label>
+                   <label style="display:flex; align-items:center; gap:0.7rem; cursor:pointer;"><input type="checkbox"> Culinary / Cooking</label>
+                 </div>
+               </div>
+               <div>
+                  <h3 style="margin-bottom:1rem;">Dietary Restrictions</h3>
+                  <div style="display:flex; flex-direction:column; gap:0.8rem;">
+                    <label style="display:flex; align-items:center; gap:0.7rem; cursor:pointer;"><input type="checkbox" checked> Soy-Free Only</label>
+                    <label style="display:flex; align-items:center; gap:0.7rem; cursor:pointer;"><input type="checkbox"> Nut-Free Only (Seeds-Based)</label>
+                    <label style="display:flex; align-items:center; gap:0.7rem; cursor:pointer;"><input type="checkbox"> Gluten-Free Certified</label>
+                  </div>
+               </div>
+            </div>
+
+            <div style="margin-top:2.5rem; padding:1.5rem; background:var(--accent-soft); border:1px solid var(--secondary-color); border-radius:10px;">
+               <div style="display:flex; align-items:center; justify-content:space-between;">
+                 <div>
+                   <h4 style="margin:0 0 0.5rem 0;">Experimental Micro-batches</h4>
+                   <p style="margin:0; font-size:0.85rem; opacity:0.8;">Would you like to be a beta tester for new, unreleased flavors? (No extra cost)</p>
+                 </div>
+                 <div style="position:relative; width:50px; height:26px; background:var(--primary-color); border-radius:13px; cursor:pointer;">
+                    <div style="position:absolute; right:3px; top:3px; width:20px; height:20px; background:#fff; border-radius:50%;"></div>
+                 </div>
+               </div>
+            </div>
+
+            <button class="btn btn-primary" style="margin-top:2.5rem; padding:0.8rem 2.5rem;">Save All Preferences</button>
           </div>
         </section>
 
@@ -259,7 +434,7 @@
         <section id="billing" class="dash-section">
           <div class="dash-box">
             <h3>Payment Methods</h3>
-            <div style="display:flex; gap:1rem; margin-top:1rem;">
+            <div style="display:flex; gap:1rem; margin-top:1rem; flex-wrap:wrap;">
               <div style="flex:1; border:1px solid var(--border-color); padding:1rem; border-radius:10px; display:flex; align-items:center; gap:1rem;">
                 <i data-lucide="credit-card"></i>
                 <div><p style="margin:0; font-weight:600;">Visa **** 4242</p><p style="margin:0; font-size:0.8rem; opacity:0.7;">Expires 12/28</p></div>
@@ -295,6 +470,171 @@
               <label style="display:flex; align-items:center; gap:0.5rem;"><input type="checkbox" checked> Order tracking SMS updates</label>
             </div>
             <button class="btn btn-primary" style="margin-top:2rem;">Update Account</button>
+          </div>
+        </section>
+
+        <!-- New: Tasting Journal -->
+        <section id="journal" class="dash-section">
+          <div class="journal-grid">
+            <div class="dash-box" style="margin:0;">
+              <div style="display:flex; gap:2rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+                <div><p style="font-size:0.75rem; opacity:0.6; margin:0;">Total Varieties</p><h3 style="margin:0;">12 Wheels</h3></div>
+                <div><p style="font-size:0.75rem; opacity:0.6; margin:0;">Average Rating</p><h3 style="margin:0;">4.8 <i data-lucide="star" fill="currentColor" style="width:14px; vertical-align:middle;"></i></h3></div>
+                <div><p style="font-size:0.75rem; opacity:0.6; margin:0;">Base Breakdown</p><h3 style="margin:0; font-size:1rem;">Cashew (7), Almond (5)</h3></div>
+              </div>
+              <hr style="border:0; border-top:1px solid var(--border-color); margin: 0 -1.5rem 1.5rem -1.5rem;">
+              <div class="box-header">
+                <h3>My Tasting Journal</h3>
+                <button class="btn btn-secondary btn-sm">+ New Entry</button>
+              </div>
+              <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:1.5rem;">
+                <div style="border:1px solid var(--border-color); border-radius:10px; overflow:hidden;">
+                  <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?q=80&w=600&auto=format&fit=crop" style="width:100%; height:120px; object-fit:cover;">
+                  <div style="padding:1rem;">
+                    <h4 style="margin:0 0 0.5rem 0; font-size:0.95rem;">Smoked Cashew Cheddar</h4>
+                    <div style="display:flex; gap:2px; color:var(--secondary-color); margin-bottom:0.5rem;">
+                      <i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" style="width:14px;"></i>
+                    </div>
+                    <p style="font-size:0.8rem; opacity:0.7;">"Incredible smoky flavor. Pairs beautifully with a crisp white wine."</p>
+                  </div>
+                </div>
+                <div style="border:1px solid var(--border-color); border-radius:10px; overflow:hidden;">
+                  <img src="https://images.pexels.com/photos/31610377/pexels-photo-31610377.jpeg" style="width:100%; height:120px; object-fit:cover;">
+                  <div style="padding:1rem;">
+                    <h4 style="margin:0 0 0.5rem 0; font-size:0.95rem;">Truffle Camembert</h4>
+                    <div style="display:flex; gap:2px; color:var(--secondary-color); margin-bottom:0.5rem;">
+                      <i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i>
+                    </div>
+                    <p style="font-size:0.8rem; opacity:0.7;">"So creamy! The truffle isn't overpowering, just right."</p>
+                  </div>
+                </div>
+                <div style="border:1px solid var(--border-color); border-radius:10px; overflow:hidden;">
+                  <img src="https://images.unsplash.com/photo-1559561853-08451507cbe7?q=80&w=600&auto=format&fit=crop" style="width:100%; height:120px; object-fit:cover;">
+                  <div style="padding:1rem;">
+                    <h4 style="margin:0 0 0.5rem 0; font-size:0.95rem;">Aged Almond Blue</h4>
+                    <div style="display:flex; gap:2px; color:var(--secondary-color); margin-bottom:0.5rem;">
+                      <i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" fill="currentColor" style="width:14px;"></i><i data-lucide="star" style="width:14px;"></i>
+                    </div>
+                    <p style="font-size:0.8rem; opacity:0.7;">"Surprisingly sharp and tangy. A bit crumbly, exactly what I wanted."</p>
+                  </div>
+                </div>
+              </div>
+
+              <div style="margin-top:2.5rem;">
+                <h3 style="font-size:1.1rem; margin-bottom:1rem;">Discovery Wishlist</h3>
+                <div style="display:flex; gap:1rem; overflow-x:auto; padding-bottom:1rem;">
+                  <div style="flex:0 0 200px; text-align:center; padding:1.5rem; background:var(--bg-color); border-radius:10px;">
+                    <i data-lucide="sparkles" style="color:var(--secondary-color); margin-bottom:0.8rem;"></i>
+                    <p style="font-size:0.85rem; font-weight:600; margin:0;">Wasabi Cashew</p>
+                    <button class="btn-link" style="font-size:0.75rem; margin-top:0.5rem;">Add to Box</button>
+                  </div>
+                  <div style="flex:0 0 200px; text-align:center; padding:1.5rem; background:var(--bg-color); border-radius:10px;">
+                    <i data-lucide="moon" style="color:var(--secondary-color); margin-bottom:0.8rem;"></i>
+                    <p style="font-size:0.85rem; font-weight:600; margin:0;">Midnight Ash</p>
+                    <button class="btn-link" style="font-size:0.75rem; margin-top:0.5rem;">Add to Box</button>
+                  </div>
+                  <div style="flex:0 0 200px; text-align:center; padding:1.5rem; background:var(--bg-color); border-radius:10px;">
+                    <i data-lucide="flame" style="color:var(--secondary-color); margin-bottom:0.8rem;"></i>
+                    <p style="font-size:0.85rem; font-weight:600; margin:0;">Ghost Chili Pep</p>
+                    <button class="btn-link" style="font-size:0.75rem; margin-top:0.5rem;">Add to Box</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:1.5rem;">
+               <div class="dash-box" style="margin:0; background:var(--primary-color); color:#fff;">
+                 <h4 style="margin-bottom:1rem;">Tasting Tip #42</h4>
+                 <p style="font-size:0.85rem; opacity:0.9; line-height:1.6;">"Allow your artisanal wheels to sit at room temperature for 30 minutes before serving. This relaxes the fats and unlocks the full flavor profile."</p>
+               </div>
+               <div class="dash-box" style="margin:0;">
+                 <h4 style="margin-bottom:1rem;">Flavor Palette</h4>
+                 <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                   <span style="font-size:0.7rem; border:1px solid var(--border-color); padding:0.2rem 0.5rem; border-radius:4px;">Sharp (85%)</span>
+                   <span style="font-size:0.7rem; border:1px solid var(--border-color); padding:0.2rem 0.5rem; border-radius:4px;">Smoky (70%)</span>
+                   <span style="font-size:0.7rem; border:1px solid var(--border-color); padding:0.2rem 0.5rem; border-radius:4px;">Earthy (45%)</span>
+                   <span style="font-size:0.7rem; border:1px solid var(--border-color); padding:0.2rem 0.5rem; border-radius:4px;">Floral (12%)</span>
+                 </div>
+                 <p style="font-size:0.75rem; opacity:0.6; margin-top:1rem;">We use this data to curate your customized monthly boxes.</p>
+               </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- New: Rewards -->
+        <section id="rewards" class="dash-section">
+          <div class="dash-box">
+            <div class="box-header">
+              <h3>Elite Connoisseur Status</h3>
+              <span style="font-weight:600; color:var(--secondary-color);">Member since 2026</span>
+            </div>
+            <div style="margin:2rem 0;">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-size:0.9rem;">
+                <span>Progress to <strong>Gold Tier</strong></span>
+                <span>850 / 1000 pts</span>
+              </div>
+              <div style="height:12px; background:var(--bg-color); border-radius:6px; overflow:hidden; border:1px solid var(--border-color);">
+                <div style="width:85%; height:100%; background:linear-gradient(90deg, var(--primary-color), var(--secondary-color)); box-shadow: 0 0 10px var(--secondary-color);"></div>
+              </div>
+            </div>
+            
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-bottom:2.5rem;">
+              <div style="padding:1.5rem; background:var(--accent-soft); border-radius:12px; border:1px solid var(--secondary-color); position:relative; overflow:hidden;">
+                <h4 style="margin:0 0 1rem 0;">Next Reward</h4>
+                <p style="font-size:0.9rem; margin-bottom:1.5rem; opacity:0.9;">Free <strong>Limited Edition Honey Fig Wheel</strong> on your next shipment.</p>
+                <button class="btn btn-primary" style="width:100%;">Redeem 500 Pts</button>
+              </div>
+              <div style="padding:1.5rem; background:var(--dash-card); border-radius:12px; border:1px solid var(--border-color);">
+                <h4 style="margin:0 0 1rem 0;">Your Status Perks</h4>
+                <ul style="padding:0; list-style:none; font-size:0.85rem; display:flex; flex-direction:column; gap:0.6rem;">
+                  <li style="display:flex; align-items:center; gap:0.6rem;"><i data-lucide="check-circle" style="width:16px; color:var(--primary-color);"></i> Free Priority Shipping</li>
+                  <li style="display:flex; align-items:center; gap:0.6rem;"><i data-lucide="check-circle" style="width:16px; color:var(--primary-color);"></i> Early Access to Micro-batches</li>
+                  <li style="display:flex; align-items:center; gap:0.6rem; opacity:0.4;"><i data-lucide="lock" style="width:16px;"></i> Birthday Surprise (Unlock at Gold)</li>
+                  <li style="display:flex; align-items:center; gap:0.6rem; opacity:0.4;"><i data-lucide="lock" style="width:16px;"></i> Personal Concierge (Unlock at Plat)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="dash-grid-top">
+               <div>
+                  <h3 style="font-size:1.1rem; margin-bottom:1.2rem;">Ways to Earn</h3>
+                  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:1rem;">
+                    <div style="padding:1.2rem; background:var(--bg-color); border-radius:10px; border:1px solid var(--border-color);">
+                      <i data-lucide="shopping-cart" style="color:var(--secondary-color); margin-bottom:0.5rem;"></i>
+                      <p style="margin:0; font-size:0.85rem; font-weight:600;">Shop Cheese</p>
+                      <p style="margin:0; font-size:0.75rem; opacity:0.6;">5 pts per $1 spent</p>
+                    </div>
+                    <div style="padding:1.2rem; background:var(--bg-color); border-radius:10px; border:1px solid var(--border-color);">
+                      <i data-lucide="pen-tool" style="color:var(--secondary-color); margin-bottom:0.5rem;"></i>
+                      <p style="margin:0; font-size:0.85rem; font-weight:600;">Rate & Review</p>
+                      <p style="margin:0; font-size:0.75rem; opacity:0.6;">50 pts per review</p>
+                    </div>
+                    <div style="padding:1.2rem; background:var(--bg-color); border-radius:10px; border:1px solid var(--border-color);">
+                      <i data-lucide="users" style="color:var(--secondary-color); margin-bottom:0.5rem;"></i>
+                      <p style="margin:0; font-size:0.85rem; font-weight:600;">Refer a Friend</p>
+                      <p style="margin:0; font-size:0.75rem; opacity:0.6;">200 pts upon signup</p>
+                    </div>
+                    <div style="padding:1.2rem; background:var(--bg-color); border-radius:10px; border:1px solid var(--border-color);">
+                      <i data-lucide="instagram" style="color:var(--secondary-color); margin-bottom:0.5rem;"></i>
+                      <p style="margin:0; font-size:0.85rem; font-weight:600;">Social Tag</p>
+                      <p style="margin:0; font-size:0.75rem; opacity:0.6;">20 pts per mention</p>
+                    </div>
+                  </div>
+               </div>
+               <div class="dash-box" style="margin:0; height:fit-content;">
+                  <h3 style="font-size:1.1rem; margin-bottom:1.2rem;">Recent Redemptions</h3>
+                  <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:1rem;">
+                    <li style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem; border-bottom:1px solid var(--border-color); padding-bottom:0.8rem;">
+                      <div><p style="margin:0; font-weight:600;">Free Shipping</p><p style="margin:0; font-size:0.75rem; opacity:0.6;">Used Sep 15, 2026</p></div>
+                      <span style="color:var(--secondary-color); font-weight:700;">-150 pts</span>
+                    </li>
+                    <li style="display:flex; justify-content:space-between; align-items:center; font-size:0.85rem;">
+                      <div><p style="margin:0; font-weight:600;">$10 Store Credit</p><p style="margin:0; font-size:0.75rem; opacity:0.6;">Used Aug 02, 2026</p></div>
+                      <span style="color:var(--secondary-color); font-weight:700;">-1000 pts</span>
+                    </li>
+                  </ul>
+               </div>
+            </div>
           </div>
         </section>
 
@@ -345,5 +685,6 @@
   </script>
 </body>
 </html>
+
 
 

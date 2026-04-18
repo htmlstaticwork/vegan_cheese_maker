@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,15 +10,15 @@
 </head>
 <body class="auth-page">
   <!-- Fixed Toggles -->
-  <div style="position:fixed; top:2rem; right:2rem; display:flex; gap:1rem; z-index:1000;">
-    <button class="icon-btn" id="theme-toggle" style="background:var(--card-bg); border:1px solid var(--border-color); box-shadow:var(--shadow-sm);"><i data-lucide="moon"></i></button>
-    <button class="icon-btn" id="rtl-toggle" style="background:var(--card-bg); border:1px solid var(--border-color); box-shadow:var(--shadow-sm);"><i data-lucide="align-right"></i></button>
+  <div style="position:fixed; top:2rem; right:2rem; display:flex; gap:1rem; z-index:1000; align-items:center;">
+    <button class="icon-btn" id="theme-toggle" style="background:var(--card-bg); border:1px solid var(--border-color); box-shadow:var(--shadow-sm); height:44px !important;"><i data-lucide="moon"></i></button>
+    <button class="icon-btn rtl-toggle-btn" id="rtl-toggle" style="background:var(--card-bg); border:1px solid var(--border-color); box-shadow:var(--shadow-sm); height:44px !important;">RTL</button>
   </div>
 
   <div class="auth-card fade-in">
     <div style="text-align:center;">
       <a href="index.html" class="logo">
-        <img src="favicon.png" alt="Cheevo Logo" class="logo-icon-img"> Cheevo
+        <img src="brand-logo.png" alt="Cheevo Logo" class="logo-icon-img"> Cheevo
       </a>
     </div>
     
@@ -39,7 +39,7 @@
       <div class="form-group">
         <label class="form-label">Password</label>
         <div class="password-input-wrap">
-          <input type="password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+          <input type="password" class="form-input" required>
           <button type="button" class="password-toggle"><i data-lucide="eye"></i></button>
         </div>
       </div>
@@ -47,7 +47,7 @@
       <div class="form-group">
         <label class="form-label">Confirm Password</label>
         <div class="password-input-wrap">
-          <input type="password" class="form-input" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required>
+          <input type="password" class="form-input" required>
           <button type="button" class="password-toggle"><i data-lucide="eye"></i></button>
         </div>
       </div>
@@ -82,5 +82,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
